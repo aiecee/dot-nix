@@ -1,26 +1,16 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-    xwayland.enable = true;
-    settings = {
-      exec-once = [
-        "${pkgs.waybar}/bin/waybar"
-      ];
-
-      bind =
-        let
-          terminal = "${pkgs.kitty}/bin/kitty";
-          browser = defaultApp "x-scheme-handler/https";
-        in
-        [
-          "SUPER,Return,exec,${terminal}"
-          "SUPER,b,exec,${browser}"
-          "SUPER,q,killactive"
-          "SUPERSHIFT,e,exit"
-        ];
-    };
-  };
+  xdg.configFile."hypr/hyprland.conf".text =
+    let
+      terminal = "${pkgs.kitty}/bin/kitty";
+      browser = "${pkgs.firefox}/bin/firefox";
+    in  
+    ''
+    exec-once ${pkgs.waybar}/bin/waybar
+    bind=SUPER,Return,exec,${terminal}"
+    bind=SUPER,b,exec,${browser}"
+    bind=SUPER,q,killactive"
+    bind=SUPERSHIFT,e,exit"
+    '';
 }

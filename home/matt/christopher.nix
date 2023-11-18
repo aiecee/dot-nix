@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -11,6 +11,19 @@
   ];
 
   colorScheme = inputs.nix-colors.colorschemes.catppuccin-frappe;
+
+  customFonts = {
+    enable = true;
+    monospace = {
+      family = "FiraCode Nerd Font";
+      package = pkgs.nerdfonts;
+    };
+    regular = {
+      family = "Fira Sans";
+      package = pkgs.fira;
+    };
+
+  };
 
   # TODO: monitors here
 

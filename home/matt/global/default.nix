@@ -5,8 +5,8 @@ let
 in
 {
   imports = [
-    inputs.nix-colors.homeManagerModules
-  ] ++ (buitlins.attrValues outputs.homeManagerModules);
+    inputs.nix-colors.homeManagerModules.default
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
@@ -19,7 +19,7 @@ in
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flakes" ];
+      experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
     };
   };
@@ -33,7 +33,7 @@ in
   home = {
     username = "matt";
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = "23.11";
+    stateVersion = "23.05";
   };
 
   colorScheme = colorSchemes.catppuccin-frappe;

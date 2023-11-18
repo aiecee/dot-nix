@@ -3,6 +3,6 @@
 {
 
   monitors = import ./monitors.nix;
-  customeFonts = import ./fonts.nix;
+  customFonts = import ./fonts.nix;
 
 }

@@ -15,7 +15,7 @@
   ];
 
   home.packages = with pkgs; [
-    eza
+    exa
     ripgrep
     fd
     jq

@@ -24,11 +24,11 @@
         size = "compact";
         variant = "frappe";
       };
-      name = "Catppuccin-Frappe-Compact-Green-Dark;":
+      name = "Catppuccin-Frappe-Compact-Green-Dark;";
       };
     };
 
-    home.pointerCurosr = {
+    home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
       package = pkgs.catppuccin-cursors.frappeDark;

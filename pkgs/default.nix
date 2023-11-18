@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> { } }: rec {
 
-  catppuccin-sddm = pkgs.callPackage ./catppuccin-sddm { };
+  catppuccin-sddm = pkgs.libsForQt5.callPackage ./catppuccin-sddm.nix { };
 
 }

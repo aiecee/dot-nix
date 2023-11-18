@@ -11,14 +11,13 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
-    , hyprland
     , ...
     } @ inputs:
     let
@@ -39,7 +38,7 @@
       packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; });
       formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { inherit inputs outputs; };
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
@@ -60,7 +59,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
-            hyprland.homeManagerModules.default
             ./home/matt/christopher.nix
           ];
         };
