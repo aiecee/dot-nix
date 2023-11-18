@@ -7,10 +7,15 @@
       browser = "${pkgs.firefox}/bin/firefox";
     in  
     ''
-    exec-once ${pkgs.waybar}/bin/waybar
-    bind=SUPER,Return,exec,${terminal}"
-    bind=SUPER,b,exec,${browser}"
-    bind=SUPER,q,killactive"
-    bind=SUPERSHIFT,e,exit"
+    exec-once=${pkgs.waybar}/bin/waybar
+
+    general {
+      layout=master
+    }
+
+    bind=SUPER,Return,exec,${terminal}
+    bind=SUPER,b,exec,${browser}
+    bind=SUPER,q,killactive
+    bind=SUPERSHIFT,q,exit
     '';
 }

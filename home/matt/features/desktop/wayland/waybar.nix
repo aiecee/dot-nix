@@ -18,7 +18,6 @@
           "hyprland/window"
         ];
         modules-right = [
-          "wireplumber"
           "clock"
         ];
 
@@ -27,9 +26,6 @@
           format = "{:%d/%m/%Y %H:%M:%S}";
           timezone = "GB";
           locale = "en_GB";
-        };
-        wireplumber = {
-          format = "{node_name}: {volume}%";
         };
       };
     };

@@ -13,7 +13,11 @@
     ../common/users/matt.nix
     ../common/users/alex.nix
   ];
-  hyprland.enable = true;
+  #hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   networking.hostName = "christopher";
   system.stateVersion = "unstable";
 }
