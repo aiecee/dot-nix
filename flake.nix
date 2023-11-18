@@ -23,16 +23,21 @@
     } @ inputs:
     let
       inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
       systems = [
         "aarch64-linux"
         "x86_64-linux"
         "aarch64-darwin"
       ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
     in
     {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; });
+      formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;

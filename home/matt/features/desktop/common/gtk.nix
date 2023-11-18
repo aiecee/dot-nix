@@ -25,15 +25,15 @@
         variant = "frappe";
       };
       name = "Catppuccin-Frappe-Compact-Green-Dark;":
+      };
     };
-  };
 
-  home.pointerCurosr = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.catppuccin-cursors.frappeDark;
-    name = "Catppuccin-Frappe-Dark-Cursors";
-    size = 24;
-  };
+    home.pointerCurosr = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.catppuccin-cursors.frappeDark;
+      name = "Catppuccin-Frappe-Dark-Cursors";
+      size = 24;
+    };
 
-}
+  }

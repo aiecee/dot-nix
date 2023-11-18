@@ -12,13 +12,14 @@
         canTouchEfiVariables = true;
       };
 
-      plymouth = {
-        enable = true;
-        themePackages = [ (pkgs.catppuccin-plymouth.override { variant = "frappe"; }) ];
-        theme = "catppuccin-frappe";
-      };
-
-      kernelParams = [ "quiet" ];
     };
+    kernelParams = [ "quiet" ];
 
-  }
+    plymouth = {
+      enable = true;
+      themePackages = [ (pkgs.catppuccin-plymouth.override { variant = "frappe"; }) ];
+      theme = "catppuccin-frappe";
+    };
+  };
+
+}

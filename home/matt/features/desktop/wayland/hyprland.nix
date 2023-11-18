@@ -10,15 +10,17 @@
         "${pkgs.waybar}/bin/waybar"
       ];
 
-      bind = let
-        terminal = "${pkgs.kitty}/bin/kitty";
-        browser = defaultApp "x-scheme-handler/https";
-      in [
-        "SUPER,Return,exec,${terminal}"
-        "SUPER,b,exec,${browser}"
-        "SUPER,q,killactive"
-        "SUPERSHIFT,e,exit"
-      ];
+      bind =
+        let
+          terminal = "${pkgs.kitty}/bin/kitty";
+          browser = defaultApp "x-scheme-handler/https";
+        in
+        [
+          "SUPER,Return,exec,${terminal}"
+          "SUPER,b,exec,${browser}"
+          "SUPER,q,killactive"
+          "SUPERSHIFT,e,exit"
+        ];
     };
   };
 }

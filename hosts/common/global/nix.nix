@@ -13,7 +13,7 @@
       automatic = true;
     };
     settings = {
-      experimental-features = [ "nix-commands" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
     };
   };
