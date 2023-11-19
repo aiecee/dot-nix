@@ -7,7 +7,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";

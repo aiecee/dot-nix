@@ -22,9 +22,29 @@
       family = "Fira Sans";
       package = pkgs.fira;
     };
-
   };
 
-  # TODO: monitors here
+  monitors = [
+    {
+      name = "DP-1";
+      enable = true;
+      primary = true;
+      width = 1920;
+      height = 1080;
+      x = 1920;
+      y = 0;
+      workspaces = [ "1" "3" "4" "5" "6" "7" "8" "9" ];
+    }
+    {
+      name = "HDMI-A-1";
+      enable = true;
+      width = 1920;
+      height = 1080;
+      x = 0;
+      y = 0;
+      workspaces = [ "2" ];
+    }
+  ];
+
 
 }
