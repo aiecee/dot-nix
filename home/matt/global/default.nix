@@ -36,6 +36,4 @@ in
     stateVersion = "23.05";
   };
 
-  colorScheme = colorSchemes.catppuccin-frappe;
-
 }

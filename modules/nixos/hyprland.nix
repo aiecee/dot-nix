@@ -14,6 +14,6 @@ in
       xwayland.enable = true;
     };
   };
-  
+
 
 }

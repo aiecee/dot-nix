@@ -1,25 +1,50 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.waybar = {
     enable = true;
+    package = pkgs.unstable.waybar;
     systemd.enable = true;
-    settings = {
-      primary = {
+    settings = [
+      {
         mode = "dock";
         layer = "top";
-        height = 40;
-        margin = "6";
+        height = 36;
+        margin = "8";
         position = "top";
         modules-left = [
           "hyprland/workspaces"
-        ];
-        modules-center = [
           "hyprland/window"
         ];
         modules-right = [
+          "wireplumber"
+          "disk"
+          "memory"
           "clock"
         ];
+
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            default = "";
+          };
+          persistent-workspaces = {
+            HDMI-A-1 = [ 2 ];
+            DP-1 = [ 1 3 4 5 ];
+          }; 
+        };
+
+        "hyprland/window" = {
+          separate-outputs = true;
+        };
+
+        disk = {
+          format = " {percentage_free}%";
+        };
+
+        memory = {
+          format = "󰍛 {percentage}%";
+        };
 
         clock = {
           interval = 1;
@@ -27,8 +52,91 @@
           timezone = "GB";
           locale = "en_GB";
         };
-      };
-    };
+      }
+    ];
+    style = let inherit (config.colorScheme) colors; in ''
+      * {
+        all: unset;
+        font-family: FiraCode Nerd Font Mono;
+        font-size: 10px;
+      }
+
+      window#waybar {
+        background: #${colors.base01};
+        border: 1px solid #${colors.base03};
+        border-radius: 0.5rem;
+      }
+     
+      .modules-right {
+        background: #${colors.base02};
+        border: 1px solid #${colors.base03};
+        border-radius: 0.4rem;
+        margin: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      #workspaces {
+        background: #${colors.base02};
+        border: 1px solid #${colors.base03};
+        border-radius: 0.4rem;
+        margin: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+      }
+      
+      #workspaces button {
+        border-radius: 3rem;
+        background: transparent;
+        color: #${colors.base04};
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      #workspaces button:hover {
+        color: #${colors.base0A};
+      }
+
+      #workspaces button.active {
+        color: #${colors.base09};
+      }
+
+      #window {
+        color: #${colors.base09};
+        margin-left: 0.75rem;
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      #wireplumber {
+        color: #${colors.base0E};
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+      }
+    
+      #disk {
+        color: #${colors.base08};
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+      }
+
+      #memory {
+        color: #${colors.base0F};
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+      }
+
+      #clock {
+        color: #${colors.base07};
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+      }
+    '';
   };
 
 }

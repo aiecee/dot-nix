@@ -1,7 +1,7 @@
 { lib, config, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption mkEnableOption types;
   cfg = config.monitors;
 in
 {
@@ -35,10 +35,12 @@ in
         type = types.int;
         default = 0;
       };
+
       enable = mkOption {
-        type = types.bool;
-        default = true;
-      };
+	type = types.bool;
+	default = true;
+      }; 
+
       workspaces = mkOption {
         type = types.listOf (types.str);
         default = [ ];
@@ -47,11 +49,4 @@ in
     default = [ ];
   };
 
-  config = {
-    assertions = [{
-      assertion = ((lib.length config.monitors) != 0) ->
-        ((lib.length (lib.filter (monitor: monitor.primary) config.monitors)) == 1);
-      message = "Exactly one monitor must be set as primary!";
-    }];
-  };
 }
