@@ -1,21 +1,86 @@
 { inputs, config, pkgs, lib, ... }:
 
 {
+
+  programs = {
+    zsh = {
+      loginExtra = /* bash */ ''
+        if [ "$(tty)" = "/dev/tty1" ]; then
+          exec Hyprland &> /dev/null
+        fi
+      '';
+      profileExtra = /* bash */ ''
+        if [ "$(tty)" = "/dev/tty1" ]; then
+          exec Hyprland &> /dev/null
+        fi
+      '';
+    };
+  };
+
   xdg.configFile."hypr/hyprland.conf".text =
     let
+      # inherit colours
       inherit (config.colorScheme) colors;
+
+      # basic programs
       terminal = "${pkgs.kitty}/bin/kitty";
       browser = "${pkgs.firefox}/bin/firefox";
-      mapMonitors = map (m: let
-          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-          position = "${toString m.x}x${toString m.y}";
-        in
-          "monitor=${m.name},${if m.enable then "${resolution},${position},1" else "disable"}\n");
+
+      # config vars
+      workspaces = (map toString (lib.range 1 9));
+      directions = rec {
+        left = "l";
+        right = "r";
+        up = "u";
+        down = "d";
+        h = left;
+        l = right;
+        k = up;
+        j = down;
+      };
+
+      # config generation
+      monitorConfig =
+        (lib.concatStrings
+          (lib.mapAttrsToList
+            (name: m:
+              let
+                resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+                position = "${toString m.x}x${toString m.y}";
+              in
+              ''
+                monitor=${name},${resolution},${position},1
+              ''
+            )
+            config.monitors)
+        );
+      workspaceConfig = (lib.concatStringsSep "\n" (lib.mapAttrsToList
+        (name: m:
+          let
+            workspaces = (lib.concatStringsSep "\n" (map
+              (w:
+                "workspace=${toString w},monitor:${name},${toString (if m.defaultWorkspace == w then "default:true," else "")}persistent:true"
+              )
+              m.workspaces));
+          in
+          ''
+            ${workspaces}
+          ''
+        )
+        config.monitors));
+      workspaceBinds = (lib.concatStringsSep "\n" (map (n: "bind=SUPER,${n},workspace,name:${n}") workspaces));
+      moveToWorkspaceBinds = (lib.concatStringsSep "\n" (map (n: "bind=SUPERSHIFT,${n},movetoworkspace,name:${n}") workspaces));
+      moveFocusBinds =
+        (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: direction: "bind=SUPER,${key},movefocus,${direction}") directions));
+      swapWindowBinds = (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: direction: "bind=SUPERSHIFT,${key},swapwindow,${direction}") directions));
+      focusMonitorBinds = (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: direction: "bind=SUPERCONTROL,${key},focusmonitor,${direction}") directions));
     in
     ''
-      exec-once=waybar
+      exec-once=${pkgs.unstable.waybar}/bin/waybar 2>&1 > ~/waybar.log &
 
-      ${lib.concatStrings (mapMonitors config.monitors)}
+      ${monitorConfig}
+
+      ${workspaceConfig}
 
       general {
         layout=master
@@ -24,14 +89,24 @@
         col.inactive_border=rgb(${colors.base03})
         col.active_border=rgb(${colors.base07})
       }
-     
+
       decoration {
         rounding=4
       }
-   
+
       input {
         kb_layout=gb
       }
+
+      ${workspaceBinds}
+
+      ${moveToWorkspaceBinds}
+
+      ${moveFocusBinds}
+
+      ${swapWindowBinds}
+
+      ${focusMonitorBinds}
 
       bind=SUPER,Return,exec,${terminal}
       bind=SUPER,b,exec,${browser}
@@ -39,33 +114,4 @@
       bind=SUPERSHIFT,q,exit
     '';
 
-  #wayland.windowManager.hyprland = {
-  #  enable = true;
-  #  xwayland.enable = true;
-  #  systemd.enable = true;
-  #  enableNvidiaPatches = false;
-  #  settings = {
-  #    exec-once = [
-  #      "${pkgs.waybar}/bin/waybar"
-  #    ];
-  #    general = {
-  #      layout = "master";
-  #    };
-  #    input = {
-  #      kb_layout = "gb";
-  #    };
-  #    binds = 
-  #      let
-  #        terminal = "${pkgs.kitty}/bin/kitty";
-  #        browser = "${pkgs.firefox}/bin/firefox";
-  #      in  
-  #        [
-  #          "SUPER,Return,exec,${terminal}"
-  #          "SUPER,b,exec,${browser}"
-  #          "SUPER,q,killactive"
-  #          "SUPERSHIFT,q,exit"
-  #        ];
-  #  };
-
-  #};
 }

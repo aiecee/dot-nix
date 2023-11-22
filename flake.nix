@@ -11,6 +11,7 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -42,7 +43,6 @@
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        # FIXME replace with your hostname
         christopher = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [

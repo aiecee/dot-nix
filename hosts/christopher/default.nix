@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -13,10 +13,10 @@
     ../common/users/matt.nix
     ../common/users/alex.nix
   ];
-  #hyprland.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   networking.hostName = "christopher";
   system.stateVersion = "unstable";

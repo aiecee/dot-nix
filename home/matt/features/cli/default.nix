@@ -19,7 +19,9 @@
     ripgrep
     fd
     jq
+    diskonaut
 
+    nix-du
     nixpkgs-fmt
   ];
 

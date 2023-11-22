@@ -14,6 +14,7 @@
     wl-clipboard
     slurp
     grim
+    bemenu-pipewire
   ];
 
   home.sessionVariables = {

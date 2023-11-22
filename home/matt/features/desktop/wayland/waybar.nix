@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.waybar = {
@@ -28,10 +28,7 @@
           format-icons = {
             default = "";
           };
-          persistent-workspaces = {
-            HDMI-A-1 = [ 2 ];
-            DP-1 = [ 1 3 4 5 ];
-          }; 
+          persistent-workspaces = (lib.mapAttrs (name: value: value.workspaces) config.monitors);
         };
 
         "hyprland/window" = {
