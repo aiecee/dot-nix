@@ -15,6 +15,7 @@
     slurp
     grim
     bemenu-pipewire
+    bemenu
   ];
 
   home.sessionVariables = {

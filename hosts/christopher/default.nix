@@ -6,6 +6,7 @@
 
     ../common/global
     ../common/optional/auto-upgrade.nix
+    ../common/optional/dwm.nix
     ../common/optional/gaming.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix

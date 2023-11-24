@@ -7,6 +7,7 @@
     ./features/cli
     ./features/desktop/common
     ./features/desktop/wayland
+    ./features/desktop/x11
     ./features/games
   ];
 
