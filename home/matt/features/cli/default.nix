@@ -20,6 +20,7 @@
     fd
     jq
     diskonaut
+    neovim
 
     nix-du
     nixpkgs-fmt
