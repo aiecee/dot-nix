@@ -7,7 +7,7 @@
     ./dunst.nix
   ];
 
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     dmenu
     dmenu-pipewire
     dmenu-power
