@@ -2,7 +2,7 @@
 
 {
 
-  import = [
+  imports = [
     ./sxhkd.nix
     ./dunst.nix
   ];
