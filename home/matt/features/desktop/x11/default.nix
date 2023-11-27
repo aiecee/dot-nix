@@ -3,8 +3,9 @@
 {
 
   imports = [
-    ./sxhkd.nix
     ./dunst.nix
+    ./picom.nix
+    ./sxhkd.nix
   ];
 
   xsession = {
@@ -18,5 +19,8 @@
     dmenu
     dmenu-pipewire
     dmenu-power
+    xclip
+    maim
+    xdotool
   ];
 }
