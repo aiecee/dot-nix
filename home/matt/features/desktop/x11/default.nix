@@ -6,6 +6,7 @@
     ./dunst.nix
     ./picom.nix
     ./sxhkd.nix
+    ./xresources.nix
   ];
 
   xsession = {
