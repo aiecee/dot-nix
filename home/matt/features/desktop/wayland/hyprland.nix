@@ -2,20 +2,20 @@
 
 {
 
-  programs = {
-    zsh = {
-      loginExtra = /* bash */ ''
-        if [ "$(tty)" = "/dev/tty1" ]; then
-          exec Hyprland &> /dev/null
-        fi
-      '';
-      profileExtra = /* bash */ ''
-        if [ "$(tty)" = "/dev/tty1" ]; then
-          exec Hyprland &> /dev/null
-        fi
-      '';
-    };
-  };
+  #programs = {
+  #  zsh = {
+  #    loginExtra = /* bash */ ''
+  #      if [ "$(tty)" = "/dev/tty1" ]; then
+  #        exec dwm &> /dev/null
+  #      fi
+  #    '';
+  #    profileExtra = /* bash */ ''
+  #      if [ "$(tty)" = "/dev/tty1" ]; then
+  #        exec dwm &> /dev/null
+  #      fi
+  #    '';
+  #  };
+  #};
 
   xdg.configFile."hypr/hyprland.conf".text =
     let

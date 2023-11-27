@@ -3,7 +3,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./kitty.nix
     ./mako.nix
     ./waybar.nix
   ];

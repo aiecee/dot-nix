@@ -3,10 +3,10 @@
 {
   services.xserver.windowManager.dwm = {
     enable = true;
-    package = pkgs.unstable.dwm.overrideAttrs (old: rec {
+    package = pkgs.unstable.dwm.override  {
       patches = [
         ./dwm-nixos.diff
       ];
-    });
+    };
   };
 }
