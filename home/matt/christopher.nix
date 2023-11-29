@@ -13,15 +13,19 @@
 
   colorScheme = inputs.nix-colors.colorschemes.catppuccin-frappe;
 
-  customFonts = {
+  customFonts =
+  let
+    fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+  in
+  {
     enable = true;
     monospace = {
-      family = "FiraCode Nerd Font";
-      package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+      family = "NotoMono Nerd Font";
+      package = fontPackage;
     };
     regular = {
-      family = "Fira Sans";
-      package = pkgs.fira;
+      family = "NotoSans Nerd Font";
+      package = fontPackage;
     };
   };
 

@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = config.customFonts.monospace.family;
-      size = 11;
+      size = 10;
     };
     extraConfig = ''
       # The basic colors

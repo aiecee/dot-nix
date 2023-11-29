@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.dunst = {
@@ -13,7 +13,7 @@
         corner_radius = 5;
         gap_size = 5;
         frame_width = 2;
-        font = "SpaceMono Nerd Font Mono 10";
+        font = "${config.customFonts.monospace.family} 10";
       };
       urgency_low = {
         background = "#303446";
