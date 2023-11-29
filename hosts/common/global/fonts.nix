@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  fonts.packages = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+  fonts.fonts = [ pkgs.nerdfonts.override { fonts = [ "Noto" ]; } ];
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
