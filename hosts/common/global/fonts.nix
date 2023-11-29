@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
 {
-  fonts.fonts = [ pkgs.nerdfonts.override { fonts = [ "Noto" ]; } ];
+  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Noto" ]; }) ];
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = "NotoSerif Nerd Font";
-      sansSerif = "NotoSans Nerd Font";
-      monospace = "NotoMono Nerd Font";
+      serif = [ "NotoSerif Nerd Font" ];
+      sansSerif = [ "NotoSans Nerd Font" ];
+      monospace = [ "NotoMono Nerd Font" ];
     };
   };
 
