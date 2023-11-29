@@ -11,7 +11,8 @@
     ./features/games
   ];
 
-  colorScheme = inputs.nix-colors.colorschemes.catppuccin-frappe;
+  #colorScheme = inputs.nix-colors.colorschemes.catppuccin-frappe;
+  colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
 
   customFonts =
   let

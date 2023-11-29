@@ -1,5 +1,11 @@
 # This file defines overlays
-{ inputs, ... }: {
+{ inputs, ... }:
+let
+  addPatches = pkg: patches: pkg.overrideAttrs (oldAttrs: {
+    patches = (oldAttrs.patches or [ ]) ++ patches;
+  });
+in
+{
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs { pkgs = final; };
 
@@ -7,9 +13,7 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    dwm = prev.dwm.overrideAttrs (_: {
-      patches = [ ./dwm-nixos.diff ];
-    });
+    dwm = addPatches prev.dwm [ ./dwm-nixos.diff ];
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
