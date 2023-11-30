@@ -15,7 +15,7 @@
     {
       # Basic Colors
       foreground = toColor colors.base05;
-      background = toColor colors.base01;
+      background = toColor colors.base00;
       selection_foreground = toColor colors.base05;
       selection_background = toColor colors.base0F;
       

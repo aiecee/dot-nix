@@ -22,6 +22,8 @@
     layout = "gb";
     xkbVariant = "";
   };
+  
+  services.geoclue2.enable = true;
 
   console.keyMap = "uk";
 

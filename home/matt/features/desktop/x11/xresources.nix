@@ -6,12 +6,12 @@
     inherit (config.colorScheme) colors;
     font = config.customFonts.monospace.family;
   in {
-    "dwm.normbordercolor" = "#${colors.base0F}";
-    "dwm.normbgcolor" = "#${colors.base0F}";
+    "dwm.normbordercolor" = "#${colors.base03}";
+    "dwm.normbgcolor" = "#${colors.base00}";
     "dwm.normfgcolor" = "#${colors.base05}";
-    "dwm.selbordercolor" = "#${colors.base0D}";
-    "dwm.selbgcolor" = "#${colors.base0D}";
-    "dwm.selfgcolor" = "#${colors.base0F}";
+    "dwm.selbordercolor" = "#${colors.base0A}";
+    "dwm.selbgcolor" = "#${colors.base0A}";
+    "dwm.selfgcolor" = "#${colors.base00}";
   };
 
 }

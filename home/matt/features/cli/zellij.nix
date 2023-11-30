@@ -13,7 +13,7 @@ in
       {
         nix-theme = {
           fg = toColor colors.base05;
-          bg = toColor colors.base01;
+          bg = toColor colors.base00;
           black = toColor colors.base03;
           red = toColor colors.base08;
           green = toColor colors.base0B;
