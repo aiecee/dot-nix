@@ -14,6 +14,7 @@ in
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
     dwm = addPatches prev.dwm [ ./dwm-nixos.diff ];
+    slstatus = addPatches prev.slstatus [ ./slstatus-nixos.diff ];
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
