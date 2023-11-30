@@ -14,6 +14,7 @@
     initExtra = ''
     xrandr --output DP-1 --right-of HDMI-1
     ${pkgs.slstatus}/bin/slstatus &
+    xwallpaper --clear --daemon --output all --center "$HOME/.config/wallpapers/wallpaper.png"
     '';
   };
 
