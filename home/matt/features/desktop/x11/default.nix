@@ -4,6 +4,7 @@
 
   imports = [
     ./dunst.nix
+    ./images.nix
     ./picom.nix
     ./sxhkd.nix
     ./xresources.nix

@@ -14,7 +14,7 @@ writeShellApplication {
 
       if [[ $CONFIRM == "Yes" ]]; then
         SELECTED=$(awk '{print $1}' <<< "$PROCESS"); 
-        pkill "$SELECTED";
+        kill "$SELECTED";
       fi
 
     fi
