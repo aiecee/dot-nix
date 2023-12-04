@@ -13,8 +13,8 @@ writeShellApplication {
         dmenu -i -p "Are you sure?" "$@");
 
       if [[ $CONFIRM == "Yes" ]]; then
-        SELECTED=$(awk '{print $1}' <<< $PROCESS); 
-        pkill $SELECTED
+        SELECTED=$(awk '{print $1}' <<< "$PROCESS"); 
+        pkill "$SELECTED";
       fi
 
     fi
