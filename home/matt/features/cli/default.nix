@@ -15,12 +15,13 @@
   ];
 
   home.packages = with pkgs; [
-    exa
+    eza
     ripgrep
     fd
     jq
     diskonaut
     neovim
+    neofetch
 
     nix-du
     nixpkgs-fmt

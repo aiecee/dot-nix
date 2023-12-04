@@ -14,6 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.home-manager.packages.${pkgs.system}.default
-    catppuccin-sddm
+    #catppuccin-sddm
+    sddm-chili-theme
   ];
 }

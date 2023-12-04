@@ -18,15 +18,15 @@ in
         font = "${family} 10";
       };
       urgency_low = {
-        background = "#${colors.base0F}";
+        background = "#${colors.base00}";
         foreground = "#${colors.base05}";
       };
       urgency_normal = {
-        background = "#${colors.base0F}";
+        background = "#${colors.base00}";
         foreground = "#${colors.base05}";
       };
       urgency_critical = {
-        background = "#${colors.base0F}";
+        background = "#${colors.base00}";
         foreground = "#${colors.base05}";
         frame_color = "#${colors.base08}";
       };

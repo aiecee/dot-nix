@@ -7,32 +7,28 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.catppuccin-cursors.frappeDark;
-      name = "Catppuccin-Frappe-Dark-Cursors";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
     iconTheme = {
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "frappe";
-        accent = "green";
-      };
-      name = "Papirus Dark";
+      package = pkgs.rose-pine-icon-theme;
+      name = "rose-pine-moon";
     };
     theme = {
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "green" ];
-        size = "compact";
-        variant = "frappe";
-      };
-      name = "Catppuccin-Frappe-Compact-Green-Dark;";
+      package = pkgs.rose-pine-gtk-theme;
+      name = "rose-pine-moon";
     };
   };
 
   home.pointerCursor = {
     gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.catppuccin-cursors.frappeDark;
-    name = "Catppuccin-Frappe-Dark-Cursors";
+    x11 = {
+      enable = true;
+      defaultCursor = "Bibata-Modern-Ice";
+    };
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
     size = 24;
   };
 

@@ -2,6 +2,10 @@
 
 {
   environment = {
+    variables = rec {
+      XCURSOR_THEME = "Bibata-Modern-Ice";
+      XCURSOR_SIZE = "24";
+    };
     sessionVariables = rec {
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -9,7 +13,7 @@
       XDG_STATE_HOME = "$HOME/.local/state";
     };
     systemPackages = with pkgs; [
-      vim
+      neovim
       git
       curl
       wget

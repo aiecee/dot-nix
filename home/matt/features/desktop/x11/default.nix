@@ -27,6 +27,7 @@
     dmenu
     dmenu-pipewire
     dmenu-power
+    dmenu-kill-process
     slstatus
     xclip
     maim
