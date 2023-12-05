@@ -29,6 +29,7 @@
     dmenu-pipewire
     dmenu-power
     dmenu-kill-process
+    dmenu-bitwarden
     slstatus
     xclip
     maim
