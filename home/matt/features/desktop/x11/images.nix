@@ -4,12 +4,15 @@
 
   home.packages = with pkgs; [
     feh
-    imagemagick
+    gimp-with-plugins
   ];
 
-  xdg.mimeApps.defaultApplications = {
-    "image/png" = [ "feh.desktop" ];
-    "image/jpeg" = [ "feh.desktop" ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = [ "feh.desktop" ];
+      "image/jpeg" = [ "feh.desktop" ];
+    };
   };
 
 }
