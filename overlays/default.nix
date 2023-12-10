@@ -15,7 +15,7 @@ in
   modifications = final: prev: {
     dwm = addPatches prev.dwm [ ./dwm-nixos.diff ];
     slstatus = addPatches prev.slstatus [ ./slstatus-nixos.diff ];
-    dmenu = addPatches prev.dmenu [ ./dmenu-password-5.0.diff ];
+    # dmenu = addPatches prev.dmenu [ ./dmenu-password-5.0.diff ];
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
