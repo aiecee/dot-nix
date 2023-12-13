@@ -6,9 +6,10 @@
     ./boot.nix
     ./environment.nix
     ./fonts.nix
+    ./greetd.nix
     ./locale.nix
     ./nix.nix
-    ./sddm.nix
+    #./sddm.nix
     ./zsh.nix
   ];
 
