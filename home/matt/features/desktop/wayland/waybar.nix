@@ -54,7 +54,7 @@
     style = let inherit (config.colorScheme) colors; in ''
       * {
         all: unset;
-        font-family: FiraCode Nerd Font Mono;
+        font-family: ${config.customFonts.monospace.family};
         font-size: 10px;
       }
 
@@ -80,14 +80,14 @@
         margin: 0.5rem;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
-        font-size: 12px;
+        font-size: 11px;
       }
       
       #workspaces button {
         border-radius: 3rem;
         background: transparent;
         color: #${colors.base04};
-        padding-left: 0.5rem;
+        padding-left: 0.3rem;
         padding-right: 0.5rem;
       }
 
@@ -121,14 +121,14 @@
       }
 
       #memory {
-        color: #${colors.base0F};
+        color: #${colors.base0B};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;
       }
 
       #clock {
-        color: #${colors.base07};
+        color: #${colors.base05};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;

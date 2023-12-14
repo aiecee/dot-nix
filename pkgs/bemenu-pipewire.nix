@@ -4,6 +4,7 @@ writeShellApplication {
   name = "bemenu-pipewire";
   runtimeInputs = [ pipewire jq libnotify wireplumber bemenu ];
   text = ''
+    echo "$@"
     NAME=$(pw-dump | jq '(.[] | .info | select(.props["media.class"] == "Audio/Sink") | .props["node.nick"])' | sed 's/"//g' | ${bemenu}/bin/bemenu -i -p "Audio Device" "$@")
     if [[ $NAME != "" ]]; then
       ID=$(pw-dump | jq --arg name "$NAME" '(.[] | .info | select(.props["node.nick"] == $name) | .props["object.id"])')

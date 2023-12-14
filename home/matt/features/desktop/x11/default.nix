@@ -13,9 +13,9 @@
   xsession = {
     enable = true;
     initExtra = ''
-    xrandr --output DP-1 --right-of HDMI-1
-    ${pkgs.slstatus}/bin/slstatus &
-    xwallpaper --clear --daemon --output all --center "$HOME/.config/wallpapers/wallpaper2.png"
+      xrandr --output DP-1 --right-of HDMI-1
+      ${pkgs.slstatus}/bin/slstatus &
+      xwallpaper --clear --daemon --output all --center "$HOME/.config/wallpapers/wallpaper2.png"
     '';
   };
 

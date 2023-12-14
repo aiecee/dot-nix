@@ -17,7 +17,7 @@
 
     plymouth = {
       enable = true;
-      themePackages = with pkgs; [ 
+      themePackages = with pkgs; [
         (catppuccin-plymouth.override { variant = "frappe"; })
         (adi1090x-plymouth-themes.override { selected_themes = [ "colorful_loop" ]; })
       ];

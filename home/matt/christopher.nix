@@ -6,29 +6,28 @@
 
     ./features/cli
     ./features/desktop/common
-    #./features/desktop/wayland
-    ./features/desktop/x11
+    ./features/desktop/wayland
+    #./features/desktop/x11
     ./features/games
   ];
 
-  #colorScheme = inputs.nix-colors.colorschemes.catppuccin-frappe;
   colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
 
   customFonts =
-  let
-    fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
-  in
-  {
-    enable = true;
-    monospace = {
-      family = "NotoMono Nerd Font";
-      package = fontPackage;
+    let
+      fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+    in
+    {
+      enable = true;
+      monospace = {
+        family = "NotoMono Nerd Font";
+        package = fontPackage;
+      };
+      regular = {
+        family = "NotoSans Nerd Font";
+        package = fontPackage;
+      };
     };
-    regular = {
-      family = "NotoSans Nerd Font";
-      package = fontPackage;
-    };
-  };
 
   monitors = {
     DP-1 = {

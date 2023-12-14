@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hyprland.nix
+    ./hyprland
     ./mako.nix
     ./waybar.nix
   ];
@@ -13,8 +13,6 @@
     wl-clipboard
     slurp
     grim
-    bemenu-pipewire
-    bemenu
   ];
 
   home.sessionVariables = {

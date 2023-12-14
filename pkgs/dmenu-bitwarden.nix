@@ -3,10 +3,11 @@
 writeShellApplication {
   name = "dmenu-bitwarden";
   runtimeInputs = [ dmenu bitwarden-cli ];
-  text = let
-    dmenu-cmd = "${dmenu}/bin/dmenu";
-    bw-cmd = "${bitwarden-cli}/bin/bw";
-  in
+  text =
+    let
+      dmenu-cmd = "${dmenu}/bin/dmenu";
+      bw-cmd = "${bitwarden-cli}/bin/bw";
+    in
     ''
       SESSION_KEY=""
       bw login --check
@@ -24,6 +25,6 @@ writeShellApplication {
       NAME=$(${bw-cmd} list items --session "$SESSION_KEY" | jq '(.[] | .name)' | sed 's/"//g' | ${dmenu-cmd} -p "Bitwarden Item" "$@")
       ${bw-cmd} get password "$NAME" --session "$SESSION_KEY" | ${xclip}/bin/xclip -sel c
       ${libnotify}/bin/notify-send "Bitwarden" "Password for $NAME copied to clipboard"
-   '';
+    '';
 
 }
