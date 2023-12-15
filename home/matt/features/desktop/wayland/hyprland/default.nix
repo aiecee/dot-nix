@@ -28,23 +28,21 @@ in
   xdg.configFile."hyprland/scripts/pipewire" = {
     executable = true;
     text = ''
-          ${pkgs.bemenu-pipewire}/bin/bemenu-pipewire -W 0.3 -l 10 -B 1 -R 8 -n -M 50 --fb "#${colors.base00}" &> ~/pw.log
-        '';
+      ${pkgs.bemenu-pipewire}/bin/bemenu-pipewire -W 0.3 -l 10 -B 1 -R 8 -n -M 50 --fb "#${colors.base00}" &> ~/pw.log
+    '';
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
     extraConfig =
-    let
-
+      let
         # basic programs
         terminal = "${pkgs.kitty}/bin/kitty";
         browser = "${pkgs.firefox}/bin/firefox";
         bemenu-pipewire = "$HOME/${config.xdg.configFile."hyprland/scripts/pipewire.sh".target}";
-        bemenu-power = ''
-          ${pkgs.bemenu-power}/bin/bemenu-power -W 0.3 -l 10 -B 1 -R 8 -n -M 50 --fb "#303446" --ff "#c6d0f5" --nb "#303446" --nf "#c6d0f5" --tb "#303446" --hb "#303446" --tf "#e78284" --hf "#e5c890" --nf "#c6d0f5" --af "#c6d0f5" --ab "#303446" --bdr "#51576d"
-        '';
+        bemenu-power = "$HOME/${config.xdg.configFile."hyprland/scripts/power.sh".target}";
+        bemenu-run = "$HOME/${config.xdg.configFile."hyprland/scripts/run.sh".target}";
 
         # config vars
         workspaces = (map toString (lib.range 1 9));
@@ -131,6 +129,7 @@ in
       bind=SUPER,b,exec,${browser}
       bind=SUPER,a,exec,${bemenu-pipewire}
       bind=SUPER,p,exec,${bemenu-power}
+      bind=SUPER,r,exec,${bemenu-run}
       bind=SUPER,q,killactive
       bind=SUPERSHIFT,q,exit
     '';
