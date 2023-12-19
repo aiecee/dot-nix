@@ -3,7 +3,7 @@
 let
   homeConfigs = config.home-manager.users;
   homeSharePaths = (lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs);
-  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringSep ":" homeSharePaths}"'';
+  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
   mattConfig = homeConfigs.matt;
   gtkTheme = mattConfig.gtk.theme;
   iconTheme = mattConfig.gtk.iconTheme;
