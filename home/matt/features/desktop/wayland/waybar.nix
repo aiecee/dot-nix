@@ -28,7 +28,7 @@
           format-icons = {
             default = "";
           };
-          persistent-workspaces = (lib.mapAttrs (name: value: value.workspaces) config.monitors);
+          persistant-workspaces = (lib.mapAttrs (name: value: value.defaultWorkspace) config.monitors);
         };
 
         "hyprland/window" = {

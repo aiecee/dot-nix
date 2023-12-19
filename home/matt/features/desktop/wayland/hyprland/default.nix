@@ -25,16 +25,33 @@ in
 
   };
 
-  xdg.configFile."hyprland/scripts/pipewire" = {
-    executable = true;
-    text = ''
-      ${pkgs.bemenu-pipewire}/bin/bemenu-pipewire -W 0.3 -l 10 -B 1 -R 8 -n -M 50 --fb "#${colors.base00}" &> ~/pw.log
-    '';
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
+    settings = {
+      general = {
+        layout = "master";
+        gaps_out = 8;
+        gaps_in = 4;
+        "col.inactive_border" = "rgb(${colors.base03})";
+        "col.active_border" = "rgb(${colors.base09})";
+      };
+      decoration = {
+        rounding = 4;
+        drop_shadow = false;
+      };
+      input = {
+        kb_layout = "gb";
+      };
+      misc = {
+        enable_swallow = true;
+        new_window_takes_over_fullscreen = 2;
+      };
+      monitor = (lib.mapAttrsToList (name: m: "${name}, ${toString m.width}x${toString m.height}@${toString m.refreshRate}, ${toString m.x}x${toString m.y}, 1") config.monitors);
+      workspace = (lib.mapAttrsToList (name: m: "${toString m.defaultWorkspace}, monitor:${name}, default:true, persistent:true") config.monitors);
+      windowrulev2 = [
+      ];
+    };
     extraConfig =
       let
         # basic programs
@@ -57,35 +74,6 @@ in
           j = down;
         };
 
-        # config generation
-        monitorConfig =
-          (lib.concatStrings
-            (lib.mapAttrsToList
-              (name: m:
-                let
-                  resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-                  position = "${toString m.x}x${toString m.y}";
-                in
-                ''
-                  monitor=${name},${resolution},${position},1
-                ''
-              )
-              config.monitors)
-          );
-        workspaceConfig = (lib.concatStringsSep "\n" (lib.mapAttrsToList
-          (name: m:
-            let
-              workspaces = (lib.concatStringsSep "\n" (map
-                (w:
-                  "workspace=${toString w},monitor:${name},${toString (if m.defaultWorkspace == w then "default:true," else "")}persistent:true"
-                )
-                m.workspaces));
-            in
-            ''
-              ${workspaces}
-            ''
-          )
-          config.monitors));
         workspaceBinds = (lib.concatStringsSep "\n" (map (n: "bind=SUPER,${n},workspace,name:${n}") workspaces));
         moveToWorkspaceBinds = (lib.concatStringsSep "\n" (map (n: "bind=SUPERSHIFT,${n},movetoworkspace,name:${n}") workspaces));
         moveFocusBinds =
@@ -94,26 +82,6 @@ in
         focusMonitorBinds = (lib.concatStringsSep "\n" (lib.mapAttrsToList (key: direction: "bind=SUPERCONTROL,${key},focusmonitor,${direction}") directions));
       in
       ''
-
-      ${monitorConfig}
-
-      ${workspaceConfig}
-
-      general {
-        layout=master
-        gaps_out=8
-        gaps_in=4
-        col.inactive_border=rgb(${colors.base03})
-        col.active_border=rgb(${colors.base07})
-      }
-
-      decoration {
-        rounding=4
-      }
-
-      input {
-        kb_layout=gb
-      }
 
       ${workspaceBinds}
 

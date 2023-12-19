@@ -36,7 +36,6 @@
       height = 1080;
       x = 1920;
       y = 0;
-      workspaces = [ 2 3 4 5 6 7 8 9 ];
       defaultWorkspace = 2;
     };
     HDMI-A-1 = {
@@ -44,7 +43,6 @@
       height = 1080;
       x = 0;
       y = 0;
-      workspaces = [ 1 ];
       defaultWorkspace = 1;
     };
   };

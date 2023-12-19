@@ -8,6 +8,7 @@
     ../common/optional/auto-upgrade.nix
     #../common/optional/dwm
     ../common/optional/gaming.nix
+    ../common/optional/greetd.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
 
