@@ -9,7 +9,7 @@ let
   iconTheme = mattConfig.gtk.iconTheme;
   cursorTheme = mattConfig.gtk.cursorTheme;
   font = mattConfig.customFonts.regular;
-
+  wallpaper = mattConfig.wallpaper
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
@@ -37,8 +37,12 @@ in
         font_name = "${font.family} 12";
         application_prefer_dark_theme = true;
         icon_theme_name = iconTheme.name;
-        #theme_name = gtkTheme.name;
+        theme_name = gtkTheme.name;
         cursor_theme_name = cursorTheme.name;
+      };
+      background = {
+        path = wallpaper;
+        fit = "Cover";
       };
     };
   };
