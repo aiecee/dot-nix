@@ -43,7 +43,7 @@
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        christopher = nixpkgs.lib.nixosSystem {
+        christopher = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
@@ -53,7 +53,7 @@
       };
 
       homeConfigurations = {
-        "matt@christopher" = home-manager.lib.homeManagerConfiguration {
+        "matt@christopher" = lib.homeManagerConfiguration {
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [

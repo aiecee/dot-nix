@@ -5,17 +5,18 @@
     ./hardware-configuration.nix
 
     ../common/global
+
+    ../common/users/matt.nix
+    ../common/users/alex.nix
+
     ../common/optional/auto-upgrade.nix
     #../common/optional/dwm
     ../common/optional/gaming.nix
     ../common/optional/greetd.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
-
-    ../common/users/matt.nix
-    ../common/users/alex.nix
   ];
 
   networking.hostName = "christopher";
-  system.stateVersion = "unstable";
+  system.stateVersion = "23.11";
 }

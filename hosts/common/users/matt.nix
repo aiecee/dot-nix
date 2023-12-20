@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   users.users.matt = {
@@ -12,4 +12,6 @@
       "audio"
     ];
   };
+
+  home-manager.users.matt = import ../../../home/matt/${config.networking.hostName}.nix;
 }

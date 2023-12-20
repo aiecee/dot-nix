@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
   imports = [
@@ -28,6 +28,17 @@
         package = fontPackage;
       };
     };
+
+  wallpaper = 
+    let
+      inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) nixWallpaperFromScheme;
+    in
+    (nixWallpaperFromScheme {
+      scheme = config.colorScheme;
+      width = 1920;
+      height = 1080;
+      logoScale = 4;
+    });
 
   monitors = {
     DP-1 = {

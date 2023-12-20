@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
 
@@ -6,6 +6,10 @@
 
   gtk = {
     enable = true;
+    font = {
+      name = config.customFonts.regular.family;
+      size = 12;
+    };
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

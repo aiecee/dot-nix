@@ -29,6 +29,9 @@ in
     enable = true;
     systemd.enable = true;
     settings = {
+      exec = [
+        "${pkgs.swaybg}/bin/swaybg -i ${config.wallpaper} --mode fill" 
+      ];
       general = {
         layout = "master";
         gaps_out = 8;

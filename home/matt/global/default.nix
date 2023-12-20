@@ -17,7 +17,7 @@ in
   };
 
   nix = {
-    package = pkgs.nix;
+    package = lib.mkDefault pkgs.nix;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
@@ -31,9 +31,9 @@ in
   systemd.user.startServices = "sd-switch";
 
   home = {
-    username = "matt";
-    homeDirectory = "/home/${config.home.username}";
-    stateVersion = "23.05";
+    username = lib.mkDefault "matt";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    stateVersion = lib.mkDefault "23.11";
   };
 
 }
