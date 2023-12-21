@@ -49,10 +49,6 @@
           timezone = "Europe/London";
           locale = "en_GB.UTF-8";
         };
-        "custom/clock" = {
-          interval = 1;
-          exec = "date +'%d/%m/%Y %H:%M:%S'";
-        };
       }
     ];
     style = let inherit (config.colorScheme) colors; in ''
@@ -132,13 +128,6 @@
       }
 
       #clock {
-        color: #${colors.base05};
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        font-size: 12px;
-      }
-
-      #custom-clock {
         color: #${colors.base05};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
