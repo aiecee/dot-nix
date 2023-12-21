@@ -9,16 +9,22 @@ let
   iconTheme = mattConfig.gtk.iconTheme;
   cursorTheme = mattConfig.gtk.cursorTheme;
   font = mattConfig.customFonts.regular;
-  wallpaper = mattConfig.wallpaper
+  wallpaper = mattConfig.wallpaper;
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
     xwayland disable
-    exec 'GTK_USE_PORTAL=0 ${vars} ${command}; ${pkgs.sway}/bin/swaymsg exit'
+    exec 'GTK_USE_PORTAL=0 ${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
   ''}";
 in
 {
   users.extraUsers.greeter = {
+    packages = [
+     gtkTheme.package
+     iconTheme.package
+     cursorTheme.package
+     font.package
+    ];
     home = "/tmp/greeter-home";
     createHome = true;
   };

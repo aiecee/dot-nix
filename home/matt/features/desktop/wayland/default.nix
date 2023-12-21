@@ -13,6 +13,7 @@
     wl-clipboard
     slurp
     grim
+    nwg-look
   ];
 
   home.sessionVariables = {

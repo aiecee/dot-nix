@@ -4,6 +4,6 @@
 
   monitors = import ./monitors.nix;
   customFonts = import ./fonts.nix;
-  wallpaper = import ./wallpaper.nix
+  wallpaper = import ./wallpaper.nix;
 
 }

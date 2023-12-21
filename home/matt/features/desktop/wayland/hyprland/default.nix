@@ -40,7 +40,7 @@ in
         "col.active_border" = "rgb(${colors.base09})";
       };
       decoration = {
-        rounding = 4;
+        rounding = 8;
         drop_shadow = false;
       };
       input = {

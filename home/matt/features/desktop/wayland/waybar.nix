@@ -46,8 +46,8 @@
         clock = {
           interval = 1;
           format = "{:%d/%m/%Y %H:%M:%S}";
-          timezone = "GB";
-          locale = "en_GB";
+          timezone = "Europe/London";
+          locale = "en_GB.UTF-8";
         };
         "custom/clock" = {
           interval = 1;
