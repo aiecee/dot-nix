@@ -35,14 +35,13 @@
           },
           extensions = {
             ["ui-select"] = {
-              telescope_themes.get_dropdwon(),
+              telescope_themes.get_dropdown(),
             },
           },
         })
 
         telescope.load_extension("ui-select")
         telescope.load_extension("file_browser")
-
       '';
     }
   ];
