@@ -42,15 +42,15 @@ in
         require("mini.jump2d").setup()
         require("mini.move").setup({
           mappings = {
-            left = "<C-h>",
-            right = "<C-l>",
-            up = "<C-k>",
-            down = "<C-j>",
+            left = "<S-h>",
+            right = "<S-l>",
+            up = "<S-k>",
+            down = "<S-j>",
 
-            line_left = "<C-h>",
-            line_right = "<C-l>",
-            line_up = "<C-k>",
-            line_down = "<C-j>",
+            line_left = "<S-h>",
+            line_right = "<S-l>",
+            line_up = "<S-k>",
+            line_down = "<S-j>",
           },
         })
         require("mini.pairs").setup()
@@ -64,7 +64,7 @@ in
         })
         require("mini.surround").setup()
       '';
-
-  ]
+    }
+  ];
 
 }

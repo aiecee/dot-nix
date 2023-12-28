@@ -1,11 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
 
-  home.packages = with pkgs; [
-    nodejs-slim
-    gcc
-  ];
   
   programs.neovim.plugins = with pkgs.vimPlugins; [
     nvim-treesitter-refactor
