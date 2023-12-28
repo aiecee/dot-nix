@@ -1,35 +1,22 @@
 { pkgs, lib, ... }:
 
 {
+
+  home.packages = with pkgs; [
+    nodejs-slim
+    gcc
+  ];
+  
   programs.neovim.plugins = with pkgs.vimPlugins; [
     nvim-treesitter-refactor
     nvim-treesitter-context
     nvim-ts-autotag
     {
-      plugin = nvim-treesitter;
+      plugin = nvim-treesitter.withAllGrammars;
       type = "lua";
       config = ''
-        local tsInstall = require("nvim-treesitter.install")
-        local tsconfig = require("nvim-treesitter.configs")
-        
-        install.compilers = { "clang", "gcc" }
-        config.setup({
-				  ensure_installed = {
-		  			"lua",
-		  			"typescript",
-		  			"javascript",
-		  			"tsx",
-		  			"rust",
-		  			"go",
-		  			"markdown",
-		  			"json",
-		  			"css",
-		  			"scss",
-		  			"html",
-		  			"python",
-		  			"bash",
-		  			"yaml",
-		  		},
+        local tsConfig = require("nvim-treesitter.configs")
+        tsConfig.setup({
 		  		highlight = {
 		  			enable = true,
 		  		},
@@ -49,7 +36,6 @@
 		  			},
 		  		},
         })
-        install.update({ with_sync = true })
       '';
     }
   ];

@@ -8,7 +8,7 @@
     ./features/desktop/common
     ./features/desktop/wayland
     #./features/desktop/x11
-    ./features/games
+    #./features/games
     ./features/neovim
   ];
 

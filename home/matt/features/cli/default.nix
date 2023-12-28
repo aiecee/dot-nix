@@ -20,7 +20,6 @@
     fd
     jq
     diskonaut
-    neovim
     neofetch
 
     nix-du

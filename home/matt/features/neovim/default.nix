@@ -5,7 +5,7 @@
   imports = [
     ./options.nix
     ./syntaxes.nix
-
+    ./mini.nix
   ];
   
   programs.neovim = {

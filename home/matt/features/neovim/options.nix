@@ -13,7 +13,7 @@
 
     set_global_opt("mapleader", " ")
 
-    set_opt("shell", "zsh)
+    set_opt("shell", "zsh")
     set_opt("completeopt", { "menu", "menuone", "preview", "noselect" })
     set_opt("number", true)
     set_opt("relativenumber", true)
@@ -38,7 +38,7 @@
     set_opt("foldlevelstart", 99)
     set_opt("fileformat", "unix")
     set_opt("laststatus", 3)
-    set_opt("clipboard", "unamedplus")
+    set_opt("clipboard", "unnamedplus")
     set_opt("updatetime", 750)
     set_opt("title", true)
   '';
