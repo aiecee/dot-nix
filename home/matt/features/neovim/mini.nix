@@ -34,7 +34,12 @@ in
         })
         require("mini.bracketed").setup()
 
-        vim.keymap.set("n", "<Leader>t", "<cmd>Neotree toggle", { desc = "File tree" })
+        vim.keymap.set("n", "<Leader>t", "<cmd>Neotree toggle<cr>", { desc = "file tree" })
+        vim.keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find" })
+        vim.keymap.set("n", "<Leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "recently opened" })
+        vim.keymap.set("n", "<Leader>sf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "current file" })
+        vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope grep_string<cr>", { desc = "word under cursor" })
+        vim.keymap.set("n", "<Leader>sw", "<cmd>Telescope live_grep<cr>", { desc = "current working dir" })
 
         local miniclue = require("mini.clue")
         miniclue.setup({
@@ -45,6 +50,8 @@ in
             { mode = "x", keys = "g"},
           },
           clues = {
+            { mode = "n", keys = "<Leader>f", desc = "+Files" },
+            { mode = "n", keys = "<Leader>s", desc = "+Search" },
             miniclue.gen_clues.g(),
             miniclue.gen_clues.windows(),
           },

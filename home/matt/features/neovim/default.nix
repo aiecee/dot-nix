@@ -9,6 +9,7 @@
     ./completion.nix
     ./mini.nix
     ./ui.nix
+    ./telescope.nix
   ];
   
   programs.neovim = {
