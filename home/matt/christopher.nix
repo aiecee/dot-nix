@@ -9,6 +9,7 @@
     ./features/desktop/wayland
     #./features/desktop/x11
     ./features/games
+    ./features/neovim
   ];
 
   colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
@@ -29,7 +30,7 @@
       };
     };
 
-  wallpaper = 
+  wallpaper =
     let
       inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) nixWallpaperFromScheme;
     in
@@ -47,6 +48,7 @@
       height = 1080;
       x = 1920;
       y = 0;
+      workspaces = [ 3 4 5 6 7 8 9 ];
       defaultWorkspace = 2;
     };
     HDMI-A-1 = {

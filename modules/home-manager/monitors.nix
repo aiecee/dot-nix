@@ -34,6 +34,10 @@ in
             type = types.int;
             default = 0;
           };
+          workspaces = mkOption {
+            type = types.listOf (types.int);
+            default = [ ];
+          };
           defaultWorkspace = mkOption {
             type = types.int;
           };

@@ -4,6 +4,7 @@ let
   homeConfigs = config.home-manager.users;
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;
   vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
+
   mattConfig = homeConfigs.matt;
   gtkTheme = mattConfig.gtk.theme;
   iconTheme = mattConfig.gtk.iconTheme;
@@ -14,16 +15,16 @@ let
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
     xwayland disable
-    exec 'GTK_USE_PORTAL=0 ${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
+    exec 'GTK_USE_PORTAL=0 GTK_THEME="${gtkTheme.name}" ${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
   ''}";
 in
 {
   users.extraUsers.greeter = {
     packages = [
-     gtkTheme.package
-     iconTheme.package
-     cursorTheme.package
-     font.package
+      gtkTheme.package
+      iconTheme.package
+      cursorTheme.package
+      font.package
     ];
     home = "/tmp/greeter-home";
     createHome = true;
