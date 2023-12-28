@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.programs = with pkgs; [
-    rg
+  home.packages = with pkgs; [
+    ripgrep
   ];
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
@@ -26,11 +26,11 @@
       config = ''
         local cmp = require("cmp")
         local lspkind = require("lspkind")
-        locl under_comparator = require("cmp-under-comparator")
+        local under_comparator = require("cmp-under-comparator")
 
         cmp.setup({
           sources = cmp.config.sources({
-            { name = "nvim_lsp" }.
+            { name = "nvim_lsp" },
             { name = "nvim_lsp_document_symbol" },
             { name = "nvim_lsp_signature_help" },
             { name = "buffer" },
