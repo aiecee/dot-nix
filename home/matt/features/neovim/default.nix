@@ -7,6 +7,7 @@
     ./syntaxes.nix
     ./mini.nix
     ./lsp.nix
+    ./completion.nix
   ];
   
   programs.neovim = {

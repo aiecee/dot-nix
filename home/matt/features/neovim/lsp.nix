@@ -24,7 +24,7 @@
           end
         end
 
-        add_lsp(lspconfig.nil, {})
+        add_lsp(lspconfig.nil_ls, {})
       '';
     }
 
