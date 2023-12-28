@@ -13,24 +13,24 @@
       config = ''
         local tsConfig = require("nvim-treesitter.configs")
         tsConfig.setup({
-		  		highlight = {
-		  			enable = true,
-		  		},
-		  		incremental_selection = {
-		  			enable = true,
-		  		},
-		  		indent = {
-		  			enable = true,
-		  		},
-		  		refactor = {
-		  			highlight_definitions = {
-		  				enable = true,
-		  				clear_cursor_on_move = true,
-		  			},
-		  			highlight_current_scope = {
-		  				enable = false,
-		  			},
-		  		},
+          highlight = {
+            enable = true,
+          },
+          incremental_selection = {
+            enable = true,
+          },
+          indent = {
+            enable = true,
+          },
+          refactor = {
+            highlight_definitions = {
+              enable = true,
+              clear_cursor_on_move = true,
+            },
+            highlight_current_scope = {
+              enable = false,
+            },
+          },
         })
       '';
     }

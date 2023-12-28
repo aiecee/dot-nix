@@ -5,10 +5,10 @@
   imports = [
     ./options.nix
     ./syntaxes.nix
-    ./keymapping.nix
-    ./mini.nix
     ./lsp.nix
     ./completion.nix
+    ./mini.nix
+    ./ui.nix
   ];
   
   programs.neovim = {

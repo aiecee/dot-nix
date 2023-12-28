@@ -33,6 +33,29 @@ in
           use_cterm = true,
         })
         require("mini.bracketed").setup()
+
+        vim.keymap.set("n", "<Leader>t", "<cmd>Neotree toggle", { desc = "File tree" })
+
+        local miniclue = require("mini.clue")
+        miniclue.setup({
+          triggers = {
+            { mode = "n", keys = "<Leader>" },
+            { mode = "x", keys = "<Leader>" },
+            { mode = "n", keys = "g"},
+            { mode = "x", keys = "g"},
+          },
+          clues = {
+            miniclue.gen_clues.g(),
+            miniclue.gen_clues.windows(),
+          },
+          window = {
+            config = {
+              width = "auto",
+              anchor = "SW",
+            },
+            delay = 0,
+          },
+        })
         require("mini.comment").setup()
         require("mini.cursorword").setup()
         require("mini.indentscope").setup({
