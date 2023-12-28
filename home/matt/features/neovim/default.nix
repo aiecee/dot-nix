@@ -11,7 +11,7 @@
     ./ui.nix
     ./telescope.nix
   ];
-  
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;

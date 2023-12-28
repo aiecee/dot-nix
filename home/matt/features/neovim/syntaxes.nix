@@ -2,7 +2,7 @@
 
 {
 
-  
+
   programs.neovim.plugins = with pkgs.vimPlugins; [
     nvim-treesitter-refactor
     nvim-treesitter-context

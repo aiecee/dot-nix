@@ -9,22 +9,22 @@
       plugin = neo-tree-nvim;
       type = "lua";
       config = ''
-        require("neo-tree").setup({
-          popup_border_style = "rounded",
-          filesystem = {
-            follow_current_file = {
-              enabled = true,
-              leave_dirs_open = true,
-	          },
-          },
-          window = {
-            mappings = {
-              ["T"] = "toggle_node",
-              ["<space>"] = ""
-            },
-            position = "float",
-          },
-        }) 
+                require("neo-tree").setup({
+                  popup_border_style = "rounded",
+                  filesystem = {
+                    follow_current_file = {
+                      enabled = true,
+                      leave_dirs_open = true,
+        	          },
+                  },
+                  window = {
+                    mappings = {
+                      ["T"] = "toggle_node",
+                      ["<space>"] = ""
+                    },
+                    position = "float",
+                  },
+                }) 
       '';
     }
     {

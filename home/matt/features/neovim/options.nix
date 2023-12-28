@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  
+
   programs.neovim.extraLuaConfig = ''
     function set_global_opt(key, value)
       vim.g[key] = value

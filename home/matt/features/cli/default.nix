@@ -21,6 +21,7 @@
     jq
     diskonaut
     neofetch
+    lazygit
 
     nix-du
     nixpkgs-fmt
