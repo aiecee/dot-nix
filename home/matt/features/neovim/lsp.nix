@@ -3,7 +3,9 @@
 {
 
   home.packages = with pkgs; [
-    nodejs-slim
+    nodejs
+    nodePackages.typescript
+    nodePackages.typescript-language-server
     nil
   ];
 
@@ -25,6 +27,7 @@
         end
 
         add_lsp(lspconfig.nil_ls, {})
+        add_lsp(lspconfig.tsserver, {})
       '';
     }
 

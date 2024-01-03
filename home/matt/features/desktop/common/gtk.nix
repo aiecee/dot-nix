@@ -1,5 +1,7 @@
-{ pkgs, config, ... }:
-
+{ pkgs, config, inputs, ... }:
+let
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+in
 {
 
   home.packages = with pkgs; [ dconf ];

@@ -120,7 +120,8 @@ in
           "SUPER,b,exec,${browser}"
           "SUPER,a,exec,${bemenu-pipewire}"
           "SUPER,p,exec,${bemenu-power}"
-          "SUPER,r,exec,${bemenu-run}"
+          "SUPER,Space,exec,${bemenu-run}"
+          "Super,f,fullscreen,0"
           "SUPER,q,killactive"
           "SUPERSHIFT,q,exit"
         ];
