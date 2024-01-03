@@ -4,7 +4,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = config.customFonts.monospace.family;
+      #name = config.customFonts.monospace.family;
+      name = "Hack NF";
       package = config.customFonts.monospace.package;
       size = 10;
     };

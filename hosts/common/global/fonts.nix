@@ -1,13 +1,16 @@
-{ pkgs, ... }:
-
+{ pkgs, config, ... }:
+let
+  homeConfigs = config.home-manager.users;
+  mattConfig = homeConfigs.matt;
+in
 {
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Noto" ]; }) ];
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Noto" "Hack" ]; }) ];
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "NotoSerif Nerd Font" ];
-      sansSerif = [ "NotoSans Nerd Font" ];
-      monospace = [ "NotoMono Nerd Font" ];
+      serif = [ mattConfig.customFonts.regular.family ];
+      sansSerif = [ mattConfig.customFonts.regular.family ];
+      monospace = [ mattConfig.customFonts.monospace.family ];
     };
   };
 

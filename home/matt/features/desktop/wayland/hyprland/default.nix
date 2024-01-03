@@ -31,6 +31,7 @@ let
   bemenu-pipewire = "$HOME/${config.xdg.configFile."hyprland/scripts/pipewire.sh".target}";
   bemenu-power = "$HOME/${config.xdg.configFile."hyprland/scripts/power.sh".target}";
   bemenu-run = "$HOME/${config.xdg.configFile."hyprland/scripts/run.sh".target}";
+  bemenu-screenshot = "$HOME/${config.xdg.configFile."hyprland/scripts/screenshot.sh".target}";
 in
 {
 
@@ -120,6 +121,7 @@ in
           "SUPER,b,exec,${browser}"
           "SUPER,a,exec,${bemenu-pipewire}"
           "SUPER,p,exec,${bemenu-power}"
+          "SUPER,s,exec,${bemenu-screenshot}"
           "SUPER,Space,exec,${bemenu-run}"
           "Super,f,fullscreen,0"
           "SUPER,q,killactive"

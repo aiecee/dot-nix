@@ -12,6 +12,7 @@ in
   home.packages = with pkgs; [
     bemenu-pipewire
     bemenu-power
+    bemenu-screenshot
     bemenu
   ];
 
@@ -33,6 +34,13 @@ in
     executable = true;
     text = ''
       ${pkgs.bemenu}/bin/bemenu-run -p "Run" ${bemenu-args}
+    '';
+  };
+
+  xdg.configFile."hyprland/scripts/screenshot.sh" = {
+    executable = true;
+    text = ''
+      ${pkgs.bemenu-screenshot}/bin/bemenu-screenshot ${bemenu-args}
     '';
   };
 

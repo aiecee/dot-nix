@@ -30,13 +30,6 @@ in
     createHome = true;
   };
 
-  environment.systemPackages = [
-    gtkTheme.package
-    iconTheme.package
-    cursorTheme.package
-    font.package
-  ];
-
   programs.regreet = {
     enable = true;
     settings = {
