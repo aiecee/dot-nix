@@ -5,6 +5,7 @@
     enable = true;
     font = {
       name = config.customFonts.monospace.family;
+      package = config.customFonts.monospace.package;
       size = 10;
     };
     settings =

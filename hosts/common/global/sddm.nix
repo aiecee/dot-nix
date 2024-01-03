@@ -18,7 +18,7 @@
           Theme = {
             CursorTheme = "Bibata-Modern-Ice";
             CursorSize = 24;
-            Font = "NotoSans Nerd Font";
+            Font = "NotoSans NF";
           };
         };
       };

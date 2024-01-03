@@ -14,16 +14,16 @@
 
   customFonts =
     let
-      fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+      fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" "VictorMono" ]; };
     in
     {
       enable = true;
       monospace = {
-        family = "NotoMono Nerd Font";
+        family = "NotoMono Nerd Font Mono";
         package = fontPackage;
       };
       regular = {
-        family = "NotoSans Nerd Font";
+        family = "NotoSansM Nerd Font Mono";
         package = fontPackage;
       };
     };
