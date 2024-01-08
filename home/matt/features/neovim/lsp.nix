@@ -1,11 +1,12 @@
 { pkgs, ... }:
 
 {
-
   home.packages = with pkgs; [
     nodejs
     nodePackages.typescript
     nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages."@tailwindcss/language-server"
     nil
   ];
 
@@ -28,9 +29,13 @@
 
         add_lsp(lspconfig.nil_ls, {})
         add_lsp(lspconfig.tsserver, {})
+        add_lsp(lspconfig.eslint, {})
+        add_lsp(lspconfig.cssls, {})
+        add_lsp(lspconfig.html, {})
+        add_lsp(lspconfig.jsonls, {})
+        add_lsp(lspconfig.tailwindcss, {})
       '';
     }
-
   ];
 
 }
