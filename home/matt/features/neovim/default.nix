@@ -10,6 +10,7 @@
     ./mini.nix
     ./ui.nix
     ./telescope.nix
+    ./keymaps.nix
   ];
 
   programs.neovim = {

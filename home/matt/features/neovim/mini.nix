@@ -66,46 +66,24 @@ in
           end,
         })
 
-        vim.keymap.set("n", "<Leader>t", minifiles.open , { desc = "file tree" })
-        vim.keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find" })
-        vim.keymap.set("n", "<Leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "recently opened" })
-        vim.keymap.set("n", "<Leader>sf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "current file" })
-        vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope grep_string<cr>", { desc = "word under cursor" })
-        vim.keymap.set("n", "<Leader>sw", "<cmd>Telescope live_grep<cr>", { desc = "current working dir" })
-        
-        -- LSP maps
-        vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { desc = "[LSP] code action"})
-        vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "[LSP] references"})
-        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "[LSP] definitions"})
-        vim.keymap.set("n", "gR", vim.lsp.buf.rename, { desc = "[LSP] rename"})
-        vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "[LSP] hover"})
-        vim.keymap.set("n", "gd", function()
-          vim.diagnostic.open_float({ border = "rounded" })
-        end, { desc = "[LSP] diagnostics"})
-
-        vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "code action"})
-        vim.keymap.set("n", "<Leader>cr", "<cmd>Telescope lsp_references<cr>", { desc = "references"})
-        vim.keymap.set("n", "<Leader>cd", "<cmd>Telescope lsp_definitions<cr>", { desc = "definitions"})
-        vim.keymap.set("n", "<Leader>cR", vim.lsp.buf.rename, { desc = "rename"})
-        vim.keymap.set("n", "<Leader>ch", vim.lsp.buf.hover, { desc = "hover"})
-        vim.keymap.set("n", "<Leader>cd", function()
-          vim.diagnostic.open_float({ border = "rounded" })
-        end, { desc = "diagnostics"})
-
-        local miniclue = require("mini.clue")
-        miniclue.setup({
+        local mini_clue = require("mini.clue")
+        local clue_config = {
           triggers = {
             { mode = "n", keys = "<Leader>" },
             { mode = "x", keys = "<Leader>" },
-            { mode = "n", keys = "g"},
-            { mode = "x", keys = "g"},
+            { mode = "n", keys = "g" },
+            { mode = "x", keys = "g" },
           },
           clues = {
-            { mode = "n", keys = "<Leader>f", desc = "+Files" },
-            { mode = "n", keys = "<Leader>s", desc = "+Search" },
             { mode = "n", keys = "<Leader>c", desc = "+Code" },
-            miniclue.gen_clues.g(),
-            miniclue.gen_clues.windows(),
+            { mode = "n", keys = "<Leader>f", desc = "+Files" },
+            { mode = "n", keys = "<Leader>g", desc = "+Git" },
+            { mode = "n", keys = "<Leader>m", desc = "+Marks" },
+            { mode = "n", keys = "<Leader>s", desc = "+Search" },
+            { mode = "n", keys = "<Leader>S", desc = "+Sessions" },
+            { mode = "n", keys = "<Leader>w", desc = "+Windows" },
+            mini_clue.gen_clues.g(),
+            mini_clue.gen_clues.windows(),
           },
           window = {
             config = {
@@ -114,7 +92,8 @@ in
             },
             delay = 0,
           },
-        })
+        }
+        mini_clue.setup(clue_config)
         require("mini.comment").setup()
         require("mini.cursorword").setup()
         require("mini.indentscope").setup({
