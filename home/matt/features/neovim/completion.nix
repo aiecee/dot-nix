@@ -5,7 +5,7 @@
     ripgrep
   ];
 
-  programs.neovim.plugins = with pkgs.vimPlugins; [
+  programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
     cmp-nvim-lsp
     cmp-buffer
     cmp-path

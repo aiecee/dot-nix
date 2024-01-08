@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.neovim.plugins = with pkgs.vimPlugins; [
+  programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
     plenary-nvim
     telescope-ui-select-nvim
     telescope-file-browser-nvim

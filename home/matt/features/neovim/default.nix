@@ -8,9 +8,8 @@
     ./lsp.nix
     ./completion.nix
     ./mini.nix
-    ./ui.nix
     ./telescope.nix
-    ./keymaps.nix
+    ./ui.nix
   ];
 
   programs.neovim = {

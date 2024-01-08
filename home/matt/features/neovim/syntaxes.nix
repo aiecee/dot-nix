@@ -3,7 +3,7 @@
 {
 
 
-  programs.neovim.plugins = with pkgs.vimPlugins; [
+  programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
     nvim-treesitter-refactor
     nvim-treesitter-context
     nvim-ts-autotag
