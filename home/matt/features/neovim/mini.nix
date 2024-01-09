@@ -49,7 +49,9 @@ in
               vim.cmd(direction .. ' split')
               new_target_window = vim.api.nvim_get_current_win()
             end)
-              minifiles.set_target_window(new_target_window)
+
+            minifiles.set_target_window(new_target_window)
+            minifiles.go_in()
           end
             -- Adding `desc` will result into `show_help` entries
           local desc = 'Split ' .. direction
@@ -131,28 +133,34 @@ in
             { "<Leader>wv", "<cmd>wincmd v<cr>", "split vertically" },
             { "<Leader>wx", "<cmd>wincmd x<cr>", "swap" },
             -- marks
-            -- {
-            --   "<Leader>ma",
-            --   function()
-            --     harpoon:list():append()
-            --   end,
-            --   "add",
-            -- },
-            -- {
-            --   "<Leader>mn",
-            --   function()
-            --     harpoon:list():next()
-            --   end,
-            --   "next",
-            -- },
-            -- {
-            --   "<Leader>mp",
-            --   function()
-            --     harpoon:list():prev()
-            --   end,
-            --   "previous",
-            -- },
-            -- { "<Leader>ml", "<cmd>Telescope harpoon marks theme=dropdown<cr>", "list" },
+            {
+              "<Leader>ma",
+              function()
+                harpoon:list():append()
+              end,
+              "add",
+            },
+            {
+              "<Leader>mn",
+              function()
+                harpoon:list():next()
+              end,
+              "next",
+            },
+            {
+              "<Leader>mp",
+              function()
+                harpoon:list():prev()
+              end,
+              "previous",
+            },
+            {
+              "<Leader>ml",
+              function()
+              local h = require("harpoon")
+                h.ui:toggle_quick_menu(h:list())
+              end,
+              "list" },
             { "ga", vim.lsp.buf.code_action, "[LSP] code actions" },
             { "gr", "<cmd>Telescope lsp_references<cr>", "[LSP] references" },
             { "gb", "<cmd>Telescope lsp_definitions<cr>", "[LSP] definitions" },

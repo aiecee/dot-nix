@@ -7,6 +7,7 @@
     ./syntaxes.nix
     ./lsp.nix
     ./completion.nix
+    ./harpoon.nix
     ./mini.nix
     ./telescope.nix
     ./ui.nix
