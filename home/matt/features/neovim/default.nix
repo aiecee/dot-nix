@@ -7,7 +7,7 @@
     ./syntaxes.nix
     ./lsp.nix
     ./completion.nix
-    ./touble.nix
+    ./code.nix
     ./mini
     ./telescope.nix
     ./ui.nix
