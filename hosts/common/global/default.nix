@@ -13,9 +13,7 @@
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =  [
     inputs.home-manager.packages.${pkgs.system}.default
-    #catppuccin-sddm
-    #sddm-chili-theme
   ];
 }
