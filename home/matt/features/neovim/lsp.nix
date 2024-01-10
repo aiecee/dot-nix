@@ -2,11 +2,17 @@
 
 {
   home.packages = with pkgs; [
+    # node + typescript
     nodejs
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages."@tailwindcss/language-server"
+    # python
+    python3
+    python311Packages.python-lsp-server
+    python311Packages.yapf
+    # nix
     nil
   ];
 
@@ -34,6 +40,7 @@
         add_lsp(lspconfig.html, {})
         add_lsp(lspconfig.jsonls, {})
         add_lsp(lspconfig.tailwindcss, {})
+        add_lsp(lspconfig.pylsp, {})
 
         vim.diagnostic.config({
           virtual_text = true,

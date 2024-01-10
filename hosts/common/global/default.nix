@@ -8,6 +8,7 @@
     ./fonts.nix
     ./locale.nix
     ./nix.nix
+    ./usb.nix
     ./zsh.nix
   ];
 
