@@ -39,6 +39,7 @@
             { "<Leader>ws", "<cmd>wincmd w<cr>", "split" },
             { "<Leader>wv", "<cmd>wincmd v<cr>", "split vertically" },
             { "<Leader>wx", "<cmd>wincmd x<cr>", "swap" },
+            -- lsp
             { "ga", vim.lsp.buf.code_action, "[LSP] code actions" },
             { "gr", "<cmd>Telescope lsp_references<cr>", "[LSP] references" },
             { "gb", "<cmd>Telescope lsp_definitions<cr>", "[LSP] definitions" },
@@ -66,6 +67,10 @@
             { "<Leader>cr", vim.lsp.buf.rename, "rename" },
             { "<Leader>ch", vim.lsp.buf.hover, "hover" },
             { "<Leader>ct", "<cmd>TodoTelescope<cr>", "todos" },
+            -- trouble
+            { "gq", "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+            { "gw", "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace diagnostics" },
+            { "gt", "<cmd>TroubleToggle<cr>", "trouble" },
           },
         }
 

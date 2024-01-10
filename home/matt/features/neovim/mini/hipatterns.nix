@@ -6,7 +6,8 @@
       plugin = mini-nvim;
       type = "lua";
       config = ''
-        require("mini.hipatterns").setup({
+        local hipatterns = require("mini.hipatterns")
+        hipatterns.setup({
           highlighters = {
             -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
             fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
