@@ -5,14 +5,22 @@
     plenary-nvim
     telescope-ui-select-nvim
     telescope-file-browser-nvim
+    trouble-nvim
     {
       plugin = telescope-nvim;
       type = "lua";
       config = ''
         local telescope = require("telescope")
         local telescope_themes = require("telescope.themes")
+        local trouble_telescope = require("trouble.providers.telescope")
 
         telescope.setup({
+        defaults = {
+				mappings = {
+					i = { ["<c-t>"] = trouble_telescope.open_with_trouble },
+					n = { ["<c-t>"] = trouble_telescope.open_with_trouble },
+				},
+			},
           pickers = {
             find_files = {
               theme = "dropdown",
