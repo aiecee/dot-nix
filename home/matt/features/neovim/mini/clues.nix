@@ -45,6 +45,7 @@
             { "gb", "<cmd>Telescope lsp_definitions<cr>", "[LSP] definitions" },
             { "gR", vim.lsp.buf.rename, "[LSP] rename" },
             { "gh", vim.lsp.buf.hover, "[LSP] hover" },
+            { "gs", vim.lsp.buf.signature_help, "[LSP] signature help" },
             {
               "gd",
               function()
@@ -67,10 +68,14 @@
             { "<Leader>cr", vim.lsp.buf.rename, "rename" },
             { "<Leader>ch", vim.lsp.buf.hover, "hover" },
             { "<Leader>ct", "<cmd>TodoTelescope<cr>", "todos" },
+            { "<Leader>cs", vim.lsp.buf.signature_help, "signature help" },
             -- trouble
             { "gq", "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
             { "gw", "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace diagnostics" },
             { "gt", "<cmd>TroubleToggle<cr>", "trouble" },
+          },
+          i = {
+            { "<C-s>", vim.lsp.buf.signature_help, "signature help" },
           },
         }
 
