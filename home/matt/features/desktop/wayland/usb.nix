@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  services.udiskie = {
+  serivce.udiskie = {
     enable = true;
     automount = true;
     notify = true;

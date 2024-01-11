@@ -61,6 +61,9 @@ in
       exec = [
         "${pkgs.swaybg}/bin/swaybg -i ${config.wallpaper} --mode fill"
       ];
+      exec-once = [
+        "${pkgs.udiskie}/bin/udiskie &"
+      ];
       general = {
         layout = "master";
         gaps_out = 8;
