@@ -20,6 +20,7 @@
     { self
     , nixpkgs
     , home-manager
+    , darwin
     , ...
     } @ inputs:
     let
@@ -52,6 +53,15 @@
           ];
         };
       };
+      
+      darwinConfigurations = {
+        "Frontend's MacBook Pro" = darwin.lib.darwinSystem {
+          modules = [
+            # > Our main darwin configuration file <
+            ./hosts/frontend
+          ];
+        };
+      };
 
       homeConfigurations = {
         "matt@christopher" = lib.homeManagerConfiguration {
@@ -59,6 +69,15 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home/matt/christopher.nix
+          ];
+        };
+
+        "matt@Frontend's MacBook Pro" = lib.homeManagerConfiguration {
+          pkgs = pkgsFor.aarch64-darwin;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home/matt/frontend.nix
           ];
         };
       };
