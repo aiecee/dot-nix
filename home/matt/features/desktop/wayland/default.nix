@@ -4,7 +4,6 @@
   imports = [
     ./hyprland
     ./mako.nix
-    ./usb.nix
     ./waybar.nix
   ];
 

@@ -7,6 +7,7 @@
     ./gammastep.nix
     ./gtk.nix
     ./kitty.nix
+    ./usb.nix
   ];
 
   home.packages = with pkgs; [
