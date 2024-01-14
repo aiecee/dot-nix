@@ -1,3 +1,3 @@
 {
-  hyprland = import ./hyprland.nix;
+  customFonts = import ../shared/fonts.nix;
 }

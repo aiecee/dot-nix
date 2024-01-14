@@ -40,7 +40,7 @@
 
       overlays = import ./overlays { inherit inputs outputs; };
       nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      homeManagejModules = import ./modules/home-manager;
 
       nixosConfigurations = {
         christopher = lib.nixosSystem {

@@ -16,5 +16,6 @@
     xfce.thunar-archive-plugin
     gvfs # missing dependency for thunar (volman?)
     via
+    vlc
   ];
 }
