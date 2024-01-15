@@ -17,6 +17,22 @@
     ../common/optional/pipewire.nix
   ];
 
+  customFonts =
+    let
+      fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" "Hack" ]; };
+    in
+    {
+      enable = true;
+      monospace = {
+        family = "Hack Nerd Font";
+        package = fontPackage;
+      };
+      regular = {
+        family = "Hack Nerd Font Propo";
+        package = fontPackage;
+      };
+    };
+
   networking.hostName = "christopher";
   system.stateVersion = "23.11";
 }

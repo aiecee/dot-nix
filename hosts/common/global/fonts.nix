@@ -1,16 +1,15 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 let
-  homeConfigs = config.home-manager.users;
-  mattConfig = homeConfigs.matt;
-in
+  inherit (config.customFonts) regular monospace;
+in 
 {
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Noto" "Hack" ]; }) ];
+  fonts.packages = [ regular.package monospace.package ];
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ mattConfig.customFonts.regular.family ];
-      sansSerif = [ mattConfig.customFonts.regular.family ];
-      monospace = [ mattConfig.customFonts.monospace.family ];
+      serif = [ regular.family ];
+      sansSerif = [ regular.family ];
+      monospace = [ monospace.family ];
     };
   };
 
