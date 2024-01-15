@@ -9,7 +9,7 @@ let
   gtkTheme = mattConfig.gtk.theme;
   iconTheme = mattConfig.gtk.iconTheme;
   cursorTheme = mattConfig.gtk.cursorTheme;
-  font = config.customFonts.regular;
+  font = mattConfig.customFonts.regular;
   wallpaper = mattConfig.wallpaper;
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
