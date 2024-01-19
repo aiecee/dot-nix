@@ -1,6 +1,9 @@
 { pkgs, config, inputs, ... }:
 let
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+  theme = gtkThemeFromScheme {
+    scheme = config.colorScheme;
+  };
 in
 {
 
@@ -25,6 +28,10 @@ in
       package = pkgs.rose-pine-gtk-theme;
       name = "rose-pine-moon";
     };
+    #theme = {
+    #  package = theme;
+    #  name = theme.name;
+    #};
   };
 
   home.pointerCursor = {

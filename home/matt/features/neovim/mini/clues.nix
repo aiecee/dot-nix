@@ -31,7 +31,7 @@
             { "<Leader>gcb", "<cmd>Telescope git_bcommits<cr>", "buffer commits" },
             { "<Leader>gb", "<cmd>Telescope git_branches<cr>", "branches" },
             -- windows
-            { "<Leader>=", "<cmd>wincmd =<cr>", "format" },
+            { "<Leader>w=", "<cmd>wincmd =<cr>", "format" },
             { "<Leader>wh", "<cmd>wincmd h<cr>", "go left" },
             { "<Leader>wj", "<cmd>wincmd j<cr>", "go down" },
             { "<Leader>wk", "<cmd>wincmd k<cr>", "go up" },
@@ -73,6 +73,36 @@
             { "gq", "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
             { "gw", "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace diagnostics" },
             { "gt", "<cmd>TroubleToggle<cr>", "trouble" },
+            -- marks
+            {
+              "<Leader>ma",
+              function()
+                require("harpoon"):list():append()
+              end,
+              "add",
+            },
+            {
+              "<Leader>mn",
+              function()
+                require("harpoon"):list():next()
+              end,
+              "next",
+            },
+            {
+              "<leader>mp",
+              function()
+                require("harpoon"):list():prev()
+              end,
+              "previous",
+            },
+            {
+              "<leader>ml",
+              function()
+                local harpoon = require("harpoon")
+                harpoon.ui:toggle_quick_menu(harpoon:list())
+              end,
+              "list",
+            },
           },
           i = {
             { "<C-s>", vim.lsp.buf.signature_help, "signature help" },
@@ -93,6 +123,7 @@
             { mode = "n", keys = "<Leader>c", desc = "+Code" },
             { mode = "n", keys = "<Leader>f", desc = "+Files" },
             { mode = "n", keys = "<Leader>g", desc = "+Git" },
+            { mode = "n", keys = "<Leader>m", desc = "+Marks" },
             { mode = "n", keys = "<Leader>s", desc = "+Search" },
             { mode = "n", keys = "<Leader>w", desc = "+Windows" },
             mini_clue.gen_clues.g(),

@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.colorScheme) name colors;
+  inherit (config.colorScheme) colors;
   toColor = color: "#${color}";
 in
 {

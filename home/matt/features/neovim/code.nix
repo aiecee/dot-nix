@@ -1,4 +1,16 @@
 { pkgs, ... }:
+let
+  harpoon2 = pkgs.vimUtils.buildVimPlugin {
+    name = "harpoon2";
+    src = pkgs.fetchFromGitHub {
+      owner = "ThePrimeagen";
+      repo = "harpoon";
+      rev = "harpoon2";
+      hash = "sha256-MUIGRoaFcCqqFatfnFJpnEOUmSYJgV2+teU/NXj6kgY=";
+    };
+
+  };
+in 
 
 {
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
@@ -18,6 +30,13 @@
         gitsigns.setup({
           current_line_blame = true,
         })
+      '';
+    }
+    {
+      plugin = harpoon2;
+      type = "lua";
+      config = ''
+        require("harpoon"):setup()
       '';
     }
   ];

@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+
+  systemd.user.services.waybar = {
+    Unit.StartLimitBurst = 30;
+  };
+
   programs.waybar = {
     enable = true;
     package = pkgs.unstable.waybar;

@@ -3,7 +3,7 @@
 let
   homeConfigs = config.home-manager.users;
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;
-  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
+  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}" GTK_USE_PORTAL=0'';
 
   mattConfig = homeConfigs.matt;
   gtkTheme = mattConfig.gtk.theme;
@@ -15,7 +15,7 @@ let
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
     xwayland disable
-    exec 'GTK_USE_PORTAL=0 GTK_THEME="${gtkTheme.name}" ${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
+    exec '${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
   ''}";
 in
 {
