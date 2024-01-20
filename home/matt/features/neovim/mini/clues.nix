@@ -22,7 +22,6 @@
             { "<Leader>t", function() require("mini.files").open() end, "file tree" },
             { "<Leader>ff", "<cmd>Telescope find_files<cr>", "find" },
             { "<Leader>fr", "<cmd>Telescope oldfiles<cr>", "recently opened" },
-            -- search
             { "<Leader>sf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", "current file" },
             { "<Leader>sc", "<cmd>Telescope grep_string<cr>", "word under cursor" },
             { "<Leader>sw", "<cmd>Telescope live_grep<cr>", "current working dir" },
@@ -84,14 +83,14 @@
             {
               "<Leader>mn",
               function()
-                require("harpoon"):list():next()
+                require("harpoon"):list():next({ ui_nav_wrap = true })
               end,
               "next",
             },
             {
               "<leader>mp",
               function()
-                require("harpoon"):list():prev()
+                require("harpoon"):list():prev({ ui_nav_wrap = true })
               end,
               "previous",
             },
@@ -102,6 +101,13 @@
                 harpoon.ui:toggle_quick_menu(harpoon:list())
               end,
               "list",
+            },
+            {
+              "<Leader>mc",
+              function()
+                require("harpoon"):list():clear()
+              end,
+              "clear",
             },
           },
           i = {

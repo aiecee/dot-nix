@@ -15,6 +15,7 @@
     ../common/optional/greetd.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
+    ../common/optional/xwayland.nix
   ];
 
   networking.hostName = "christopher";

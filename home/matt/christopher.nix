@@ -14,7 +14,7 @@
 
   customFonts =
     let
-      fontPackage = pkgs.nerdfonts.override { fonts = [ "Noto" "Hack" ]; };
+      fontPackage = pkgs.nerdfonts.override { fonts = [ "Hack" ]; };
     in
     {
       enable = true;

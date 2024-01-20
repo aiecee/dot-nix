@@ -4,7 +4,7 @@ let
   mattConfig = homeConfigs.matt;
 in
 {
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Noto" "Hack" ]; }) ];
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
