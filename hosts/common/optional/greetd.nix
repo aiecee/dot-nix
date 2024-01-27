@@ -14,7 +14,6 @@ let
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
-    xwayland disable
     exec '${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
   ''}";
 in

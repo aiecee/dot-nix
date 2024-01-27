@@ -58,6 +58,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    package = pkgs.hyprland;
     settings = {
       exec = [
         "${pkgs.swaybg}/bin/swaybg -i ${config.wallpaper} --mode fill"
