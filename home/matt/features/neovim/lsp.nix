@@ -14,6 +14,11 @@
     python311Packages.yapf
     # nix
     nil
+    # c/c++
+    ccls
+    # llvmPackages_9.clang-unwrapped
+    # lua
+    unstable.lua-language-server
   ];
 
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
@@ -41,6 +46,31 @@
         add_lsp(lspconfig.jsonls, {})
         add_lsp(lspconfig.tailwindcss, {})
         add_lsp(lspconfig.pylsp, {})
+        add_lsp(lspconfig.ccls, {})
+        
+        local sumneko_runtime_paths = vim.split(package.path, ";", {})
+        table.insert(sumneko_runtime_paths, "lua/?.lua")
+        table.insert(sumneko_runtime_paths, "lua/?/init.lua")
+        add_lsp(lspconfig.lua_ls, {
+        settings = {
+            Lua = {
+              runtime = {
+                version = "LuaJIT",
+                path = sumneko_runtime_paths,
+              },
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                checkThirdPaty = false,
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              telemetry = {
+                enable = false,
+              },
+            },
+          },
+        })
 
         vim.diagnostic.config({
           virtual_text = true,

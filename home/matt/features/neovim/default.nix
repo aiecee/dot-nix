@@ -5,6 +5,7 @@
   imports = [
     ./options.nix
     ./syntaxes.nix
+    ./local.nix
     ./lsp.nix
     ./completion.nix
     ./code.nix

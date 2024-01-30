@@ -22,6 +22,7 @@
     diskonaut
     neofetch
     lazygit
+    unstable.ollama
 
     nix-du
     nixpkgs-fmt

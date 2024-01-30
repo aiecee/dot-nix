@@ -8,7 +8,6 @@ let
       rev = "harpoon2";
       hash = "sha256-MUIGRoaFcCqqFatfnFJpnEOUmSYJgV2+teU/NXj6kgY=";
     };
-
   };
 in 
 
