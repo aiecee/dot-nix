@@ -15,7 +15,7 @@
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
-  environment.systemPackages =  [
+  environment.systemPackages = [
     inputs.home-manager.packages.${pkgs.system}.default
   ];
 }

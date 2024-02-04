@@ -10,7 +10,7 @@
     };
   };
 
-  services.xserver = { 
+  services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" ];
   };

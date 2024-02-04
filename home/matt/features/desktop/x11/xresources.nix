@@ -4,7 +4,7 @@
   xresources.properties =
     let
       inherit (config.colorScheme) colors;
-      font = config.customFonts.monospace.family;
+      font = config.rice.fonts.monospace.family;
     in
     {
       "dwm.normbordercolor" = "#${colors.base03}";

@@ -9,7 +9,7 @@ let
       hash = "sha256-MUIGRoaFcCqqFatfnFJpnEOUmSYJgV2+teU/NXj6kgY=";
     };
   };
-in 
+in
 
 {
   home.packages = with pkgs; [

@@ -4,7 +4,7 @@ let
     name = "myllama";
     src = /home/matt/projects/neovim-plugins/myllama.nvim;
   };
-in 
+in
 {
   programs.neovim.plugins = [
     {
