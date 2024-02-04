@@ -71,7 +71,8 @@ in
         gaps_out = 8;
         gaps_in = 4;
         "col.inactive_border" = "rgb(${colors.base03})";
-        "col.active_border" = "rgb(${colors.base09})";
+        "col.active_border" = "rgb(${colors.base0A})";
+        border_size = 2;
       };
       decoration = {
         rounding = 6;

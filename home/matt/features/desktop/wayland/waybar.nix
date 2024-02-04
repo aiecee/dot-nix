@@ -65,13 +65,13 @@
 
       window#waybar {
         background: #${colors.base01};
-        border: 1px solid #${colors.base03};
+        border: 2px solid #${colors.base03};
         border-radius: 0.5rem;
       }
      
       .modules-right {
         background: #${colors.base02};
-        border: 1px solid #${colors.base03};
+        border: 2px solid #${colors.base03};
         border-radius: 0.4rem;
         margin: 0.5rem;
         padding-left: 0.5rem;
@@ -80,7 +80,7 @@
 
       #workspaces {
         background: #${colors.base02};
-        border: 1px solid #${colors.base03};
+        border: 2px solid #${colors.base03};
         border-radius: 0.4rem;
         margin: 0.5rem;
         padding-left: 0.5rem;
@@ -97,15 +97,15 @@
       }
 
       #workspaces button:hover {
-        color: #${colors.base0A};
+        color: #${colors.base09};
       }
 
       #workspaces button.active {
-        color: #${colors.base09};
+        color: #${colors.base0A};
       }
 
       #window {
-        color: #${colors.base09};
+        color: #${colors.base0A};
         margin-left: 0.75rem;
         font-size: 13px;
         font-weight: bold;
