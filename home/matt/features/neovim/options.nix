@@ -32,7 +32,7 @@
     set_opt("timeoutlen", 250)
     set_opt("autoread", true)
     set_opt("termguicolors", true)
-    set_opt("guifont", "${config.rice.fonts.monospace.family}:h12")
+    set_opt("guifont", "${config.customFonts.monospace.family}:h12")
     set_opt("foldmethod", "expr")
     set_opt("foldexpr", "nvim_treesitter#foldexpr()")
     set_opt("foldlevelstart", 99)

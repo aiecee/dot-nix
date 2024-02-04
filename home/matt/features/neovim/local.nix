@@ -10,9 +10,9 @@ in
     {
       plugin = myllama;
       type = "lua";
-      config = ''
-        require("myllama"):setup()
-      '';
+      #config = ''
+      #  require("myllama"):setup()
+      #'';
     }
   ];
 }

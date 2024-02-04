@@ -1,3 +1,3 @@
 {
-  rice.fonts = import ./fonts.nix;
+  customFonts = import ./fonts.nix;
 }

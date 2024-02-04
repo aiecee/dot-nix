@@ -8,33 +8,12 @@
     ./features/desktop/common
     ./features/desktop/wayland
     ./features/neovim
+
+    ../../shared/fonts.nix
   ];
 
   colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
 
-  rice.fonts = 
-  let
-      fontPackage = pkgs.nerdfonts.override { fonts = [ "Hack" ]; };
-  in 
-  {
-    enable = true;
-    monospace = {
-      family = "Hack Nerd Font";
-      package = fontPackage;
-    };
-    serif = {
-      family = "Hack Nerd Font Propo";
-      package = fontPackage;
-    };
-    sansSerif = {
-      family = "Hack Nerd Font Propo";
-      package = fontPackage;
-    };
-    emoji = {
-      family = "Noto Color Emoji";
-      package = pkgs.noto-fonts-color-emoji;
-    };
-  };
 
   wallpaper =
     let

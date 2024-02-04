@@ -5,11 +5,11 @@
     inputs.home-manager.nixosModules.home-manager
     ./boot.nix
     ./environment.nix
-    ./fonts.nix
     ./locale.nix
     ./nix.nix
     ./usb.nix
     ./zsh.nix
+    ../../../shared/fonts.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
 

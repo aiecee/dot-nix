@@ -1,7 +1,7 @@
 { config, ... }:
 let
   inherit (config.colorScheme) colors;
-  inherit (config.rice.fonts.monospace) family;
+  inherit (config.customFonts.monospace) family;
 in
 {
   services.dunst = {

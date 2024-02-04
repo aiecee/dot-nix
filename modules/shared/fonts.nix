@@ -2,7 +2,7 @@
 let
   mkFontOption = kind: {
     family = lib.mkOption {
-      type = lib.types.stf;
+      type = lib.types.str;
       description = "Family name for ${kind} font.";
       default = null;
     };
@@ -14,8 +14,8 @@ let
   };
 in
 {
-  options.rice.fonts = {
-    enable = lib.mkEnableOptions "Whether to enable custom fonts";
+  options.customFonts = {
+    enable = lib.mkEnableOption "Whether to enable custom fonts";
     monospace = mkFontOption "monospace";
     serif = mkFontOption "serif";
     sansSerif = mkFontOption "sansSerif";

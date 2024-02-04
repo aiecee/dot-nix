@@ -9,7 +9,7 @@ in
   gtk = {
     enable = true;
     font = {
-      name = config.rice.fonts.serif.family;
+      name = config.customFonts.serif.family;
       size = 12;
     };
     cursorTheme = {

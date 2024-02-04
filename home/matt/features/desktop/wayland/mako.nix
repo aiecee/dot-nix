@@ -7,7 +7,7 @@ in
   services.mako = {
     enable = true;
     iconPath = "${config.gtk.iconTheme.package}/share/icon/Papirus-Dark";
-    font = "${config.rice.fonts.monospace.family} 11";
+    font = "${config.customFonts.monospace.family} 11";
     backgroundColor = "#${colors.base02}";
     borderColor = "#${colors.base09}";
     borderRadius = 10;

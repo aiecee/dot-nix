@@ -13,7 +13,6 @@
     nix-colors.url = "github:misterio77/nix-colors";
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -49,7 +48,6 @@
         christopher = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./hosts/christopher
           ];
         };
@@ -60,7 +58,6 @@
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main home-manager configuration file <
             ./home/matt/christopher.nix
           ];
         };

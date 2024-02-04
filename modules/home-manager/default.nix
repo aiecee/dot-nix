@@ -3,7 +3,7 @@
 {
 
   monitors = import ./monitors.nix;
-  rice.fonts = import ./fonts.nix;
+  customFonts = import ./fonts.nix;
   wallpaper = import ./wallpaper.nix;
 
 }
