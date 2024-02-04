@@ -12,6 +12,11 @@ let
 in 
 
 {
+  home.packages = with pkgs; [
+    selene
+    stylua
+  ];
+
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
     {
       plugin = trouble-nvim;
@@ -36,6 +41,26 @@ in
       type = "lua";
       config = ''
         require("harpoon"):setup()
+      '';
+    }
+    {
+      plugin = guard-collection;
+      type = "lua";
+    }
+    {
+      plugin = guard-nvim;
+      type = "lua";
+      config = ''
+        local ft = require("guard.filetype")
+        
+        ft("lua"):fmt("lsp")
+          :append("stylua")
+          :lint("selene")
+
+        require("guard").setup({
+          fmt_on_save = true,
+          lsp_as_default_formatter = true,
+        })
       '';
     }
   ];

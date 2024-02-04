@@ -2,7 +2,7 @@
 let
   myllama = pkgs.vimUtils.buildVimPlugin {
     name = "myllama";
-    src = ~/projects/neovim-plugins/ollama-myllama.nvim;
+    src = /home/matt/projects/neovim-plugins/myllama.nvim;
   };
 in 
 {
@@ -10,7 +10,9 @@ in
     {
       plugin = myllama;
       type = "lua";
-      config = '''';
+      config = ''
+        require("myllama"):setup()
+      '';
     }
   ];
 }
