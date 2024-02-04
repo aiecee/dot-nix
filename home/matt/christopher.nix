@@ -12,8 +12,8 @@
     ../../shared/fonts.nix
   ];
 
-  #colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
-  colorScheme = inputs.nix-colors.colorschemes.stella;
+  colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
+  #colorScheme = inputs.nix-colors.colorschemes.stella;
 
   wallpaper =
     let
