@@ -20,7 +20,6 @@
     { self
     , nixpkgs
     , home-manager
-    , darwin
     , ...
     } @ inputs:
     let
@@ -29,7 +28,6 @@
       systems = [
         "aarch64-linux"
         "x86_64-linux"
-        "aarch64-darwin"
       ];
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
@@ -53,15 +51,6 @@
           ];
         };
       };
-      
-      darwinConfigurations = {
-        "Frontend's MacBook Pro" = darwin.lib.darwinSystem {
-          modules = [
-            # > Our main darwin configuration file <
-            ./hosts/frontend
-          ];
-        };
-      };
 
       homeConfigurations = {
         "matt@christopher" = lib.homeManagerConfiguration {
@@ -69,15 +58,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home/matt/christopher.nix
-          ];
-        };
-
-        "matt@Frontend's MacBook Pro" = lib.homeManagerConfiguration {
-          pkgs = pkgsFor.aarch64-darwin;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/matt/frontend.nix
           ];
         };
       };
