@@ -11,11 +11,11 @@ in
       description = "Package providing the cursor theme";
     };
     name = mkOption {
-      types = types.str;
+      type = types.str;
       description = "Name of the cursor theme in the package";
     };
     size = mkOption {
-      types = types.int;
+      type = types.int;
       default = 24;
       description = "Size of the cursor";
     };
