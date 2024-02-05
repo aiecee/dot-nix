@@ -11,7 +11,7 @@ in
     environment = {
       variables = {
         XCURSOR_THEME = cfg.name;
-        XCURSOR_SIZE = cfg.size;
+        XCURSOR_SIZE = toString cfg.size;
       };
       systemPackages = [ cfg.package ];
     };
