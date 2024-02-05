@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = "Hack NF";
-      package = config.customFonts.monospace.package;
+      package = config.rice.fonts.monospace.package;
       size = 10;
     };
     settings =

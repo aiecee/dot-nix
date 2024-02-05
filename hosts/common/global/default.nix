@@ -9,7 +9,7 @@
     ./nix.nix
     ./usb.nix
     ./zsh.nix
-    ../../../shared/fonts.nix
+    ../../../shared/rose-pine-moon.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
 

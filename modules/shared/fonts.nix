@@ -14,7 +14,7 @@ let
   };
 in
 {
-  options.customFonts = {
+  options.rice.fonts = {
     enable = lib.mkEnableOption "Whether to enable custom fonts";
     monospace = mkFontOption "monospace";
     serif = mkFontOption "serif";

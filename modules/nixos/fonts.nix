@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  cfg = config.customFonts;
+  cfg = config.rice.fonts;
 in
 {
   imports = [

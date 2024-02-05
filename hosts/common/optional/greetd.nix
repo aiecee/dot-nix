@@ -8,8 +8,8 @@ let
   mattConfig = homeConfigs.matt;
   gtkTheme = mattConfig.gtk.theme;
   iconTheme = mattConfig.gtk.iconTheme;
-  cursorTheme = mattConfig.gtk.cursorTheme;
-  font = config.customFonts.serif;
+  cursorTheme = config.rice.cursor;
+  font = config.rice.fonts.serif;
   wallpaper = mattConfig.wallpaper;
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''

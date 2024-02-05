@@ -59,7 +59,7 @@
     style = let inherit (config.colorScheme) colors; in ''
       * {
         all: unset;
-        font-family: ${config.customFonts.monospace.family};
+        font-family: ${config.rice.fonts.monospace.family};
         font-size: 10px;
       }
 
