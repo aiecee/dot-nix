@@ -6,5 +6,7 @@
   customFonts = import ./fonts.nix;
   wallpaper = import ./wallpaper.nix;
   customCursor = import ./cursor.nix;
+  customIcons = import ./icons.nix;
+  customGtkTheme = import ./gtktheme.nix;
 
 }
