@@ -5,7 +5,6 @@
     ./discord.nix
     ./firefox.nix
     ./gammastep.nix
-    ./gtk.nix
     ./kitty.nix
     ./usb.nix
   ];

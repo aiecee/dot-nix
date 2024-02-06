@@ -29,5 +29,15 @@ in
       name = "Bibata-Modern-Ice";
       size = 24;
     };
+    icons = {
+      enable = true;
+      package = pkgs.rose-pine-icon-theme;
+      name = "rose-pine-moon";
+    };
+    gtk = {
+      enable = true;
+      package = pkgs.rose-pine-gtk-theme;
+      name = "rose-pine-moon";
+    };
   };
 }

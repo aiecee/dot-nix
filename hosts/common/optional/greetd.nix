@@ -5,12 +5,10 @@ let
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;
   vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}" GTK_USE_PORTAL=0'';
 
-  mattConfig = homeConfigs.matt;
-  gtkTheme = mattConfig.gtk.theme;
-  iconTheme = mattConfig.gtk.iconTheme;
+  gtkTheme = config.rice.gtk;
+  iconTheme = config.rice.icons;
   cursorTheme = config.rice.cursor;
   font = config.rice.fonts.serif;
-  wallpaper = mattConfig.wallpaper;
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
@@ -39,10 +37,10 @@ in
         theme_name = gtkTheme.name;
         cursor_theme_name = cursorTheme.name;
       };
-      background = {
-        path = wallpaper;
-        fit = "Cover";
-      };
+      #background = {
+      #  path = wallpaper;
+      #  fit = "Cover";
+      #};
     };
   };
 
