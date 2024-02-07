@@ -3,16 +3,16 @@
 {
   xresources.properties =
     let
-      inherit (config.colorScheme) colors;
+      inherit (config.colorScheme) palette;
       font = config.rice.fonts.monospace.family;
     in
     {
-      "dwm.normbordercolor" = "#${colors.base03}";
-      "dwm.normbgcolor" = "#${colors.base00}";
-      "dwm.normfgcolor" = "#${colors.base05}";
-      "dwm.selbordercolor" = "#${colors.base0A}";
-      "dwm.selbgcolor" = "#${colors.base0A}";
-      "dwm.selfgcolor" = "#${colors.base00}";
+      "dwm.normbordercolor" = "#${palette.base03}";
+      "dwm.normbgcolor" = "#${palette.base00}";
+      "dwm.normfgcolor" = "#${palette.base05}";
+      "dwm.selbordercolor" = "#${palette.base0A}";
+      "dwm.selbgcolor" = "#${palette.base0A}";
+      "dwm.selfgcolor" = "#${palette.base00}";
     };
 
 }

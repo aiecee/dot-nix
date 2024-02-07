@@ -1,6 +1,6 @@
 {
   customFonts = import ./fonts.nix;
   customCursor = import ./cursor.nix;
-  customIcons = import ./icons.nix;
-  customGtkTheme = import ./gtktheme.nix;
+  customIcons = import ../shared/icons.nix;
+  customGtkTheme = import ../shared/gtktheme.nix;
 }

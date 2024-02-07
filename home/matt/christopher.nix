@@ -9,11 +9,12 @@
     ./features/desktop/wayland
     ./features/neovim
 
-    ../../shared/rose-pine-moon.nix
+    ../../shared/tokyo-night-terminal-storm.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
+  #colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
   #colorScheme = inputs.nix-colors.colorschemes.stella;
+  colorScheme = inputs.nix-colors.colorschemes.tokyo-night-terminal-storm;
 
   wallpaper =
     let

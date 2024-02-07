@@ -11,7 +11,7 @@ in
     gtk = {
       enable = true;
       iconTheme = {
-        package = cfg.packages;
+        package = cfg.package;
         name = cfg.name;
       };
     };

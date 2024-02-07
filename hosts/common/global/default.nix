@@ -9,8 +9,8 @@
     ./nix.nix
     ./usb.nix
     ./zsh.nix
-    ../../../shared/rose-pine-moon.nix
-  ] ++ (builtins.attrValues outputs.nixosModules);
+    ../../../shared/tokyo-night-terminal-storm.nix
+    ] ++ (builtins.attrValues outputs.nixosModules);
 
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };

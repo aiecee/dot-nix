@@ -56,7 +56,7 @@
         };
       }
     ];
-    style = let inherit (config.colorScheme) colors; in ''
+    style = let inherit (config.colorScheme) palette; in ''
       * {
         all: unset;
         font-family: ${config.rice.fonts.monospace.family};
@@ -64,14 +64,14 @@
       }
 
       window#waybar {
-        background: #${colors.base01};
-        border: 2px solid #${colors.base03};
+        background: #${palette.base01};
+        border: 2px solid #${palette.base03};
         border-radius: 0.5rem;
       }
      
       .modules-right {
-        background: #${colors.base02};
-        border: 2px solid #${colors.base03};
+        background: #${palette.base02};
+        border: 2px solid #${palette.base03};
         border-radius: 0.4rem;
         margin: 0.5rem;
         padding-left: 0.5rem;
@@ -79,8 +79,8 @@
       }
 
       #workspaces {
-        background: #${colors.base02};
-        border: 2px solid #${colors.base03};
+        background: #${palette.base02};
+        border: 2px solid #${palette.base03};
         border-radius: 0.4rem;
         margin: 0.5rem;
         padding-left: 0.5rem;
@@ -91,49 +91,49 @@
       #workspaces button {
         border-radius: 3rem;
         background: transparent;
-        color: #${colors.base04};
+        color: #${palette.base04};
         padding-left: 0.3rem;
         padding-right: 0.5rem;
       }
 
       #workspaces button:hover {
-        color: #${colors.base09};
+        color: #${palette.base09};
       }
 
       #workspaces button.active {
-        color: #${colors.base0A};
+        color: #${palette.base0A};
       }
 
       #window {
-        color: #${colors.base0A};
+        color: #${palette.base0A};
         margin-left: 0.75rem;
         font-size: 13px;
         font-weight: bold;
       }
 
       #wireplumber {
-        color: #${colors.base0E};
+        color: #${palette.base0E};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;
       }
     
       #disk {
-        color: #${colors.base08};
+        color: #${palette.base08};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;
       }
 
       #memory {
-        color: #${colors.base0B};
+        color: #${palette.base0B};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;
       }
 
       #clock {
-        color: #${colors.base05};
+        color: #${palette.base05};
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         font-size: 12px;

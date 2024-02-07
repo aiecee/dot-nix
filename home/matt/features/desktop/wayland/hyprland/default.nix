@@ -2,7 +2,7 @@
 
 let
   # inherit colours
-  inherit (config.colorScheme) colors;
+  inherit (config.colorScheme) palette;
 
   workspaces = (map toString (lib.range 1 9));
   directions = rec {
@@ -70,8 +70,8 @@ in
         layout = "master";
         gaps_out = 8;
         gaps_in = 4;
-        "col.inactive_border" = "rgb(${colors.base03})";
-        "col.active_border" = "rgb(${colors.base0A})";
+        "col.inactive_border" = "rgb(${palette.base03})";
+        "col.active_border" = "rgb(${palette.base0A})";
         border_size = 2;
       };
       decoration = {

@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.colorScheme) colors;
+  inherit (config.colorScheme) palette;
   toColor = color: "#${color}";
 in
 {
@@ -12,17 +12,17 @@ in
       themes =
         {
           nix-theme = {
-            fg = toColor colors.base05;
-            bg = toColor colors.base00;
-            black = toColor colors.base03;
-            red = toColor colors.base08;
-            green = toColor colors.base0B;
-            yellow = toColor colors.base09;
-            blue = toColor colors.base0C;
-            magenta = toColor colors.base0D;
-            cyan = toColor colors.base0A;
-            white = toColor colors.base05;
-            orange = toColor colors.base0A;
+            fg = toColor palette.base05;
+            bg = toColor palette.base00;
+            black = toColor palette.base03;
+            red = toColor palette.base08;
+            green = toColor palette.base0B;
+            yellow = toColor palette.base09;
+            blue = toColor palette.base0C;
+            magenta = toColor palette.base0D;
+            cyan = toColor palette.base0A;
+            white = toColor palette.base05;
+            orange = toColor palette.base0A;
           };
         };
       theme = "nix-theme";

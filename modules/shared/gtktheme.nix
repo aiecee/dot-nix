@@ -3,7 +3,7 @@ let
   inherit (lib) mkEnableOption mkOption types;
 in
 {
-  options.rice.gkt = {
+  options.rice.gtk = {
     enable = mkEnableOption "Enable custom gtk theme";
     package = mkOption {
       type = types.nullOr types.package;

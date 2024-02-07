@@ -8,6 +8,8 @@
     ./kitty.nix
     ./usb.nix
   ];
+  
+  dconf.enable = true;
 
   home.packages = with pkgs; [
     xfce.thunar
@@ -16,5 +18,6 @@
     gvfs # missing dependency for thunar (volman?)
     via
     vlc
+    dconf
   ];
 }

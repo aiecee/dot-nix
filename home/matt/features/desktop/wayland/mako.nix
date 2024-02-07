@@ -1,15 +1,15 @@
 { config, ... }:
 
 let
-  inherit (config.colorScheme) colors;
+  inherit (config.colorScheme) palette;
 in
 {
   services.mako = {
     enable = true;
     iconPath = "${config.gtk.iconTheme.package}/share/icon/Papirus-Dark";
     font = "${config.rice.fonts.monospace.family} 11";
-    backgroundColor = "#${colors.base02}";
-    borderColor = "#${colors.base0A}";
+    backgroundColor = "#${palette.base02}";
+    borderColor = "#${palette.base0A}";
     borderRadius = 10;
     borderSize = 2;
     padding = "10,20";
