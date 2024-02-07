@@ -31,15 +31,11 @@ in
     };
     icons = {
       enable = true;
-      #package = pkgs.rose-pine-icon-theme;
-      #name = "rose-pine-moon";
       package = pkgs.sweet-folders;
       name = "Sweet-Rainbow";
     };
     gtk = {
       enable = true;
-      #package = pkgs.rose-pine-gtk-theme;
-      #name = "rose-pine-moon";
       package = pkgs.sweet;
       name = "Sweet-Dark-v40";
     };

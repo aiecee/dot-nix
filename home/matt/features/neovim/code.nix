@@ -10,11 +10,12 @@ let
     };
   };
 in
-
 {
   home.packages = with pkgs; [
     selene
     stylua
+    nixpkgs-fmt
+    statix
   ];
 
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
@@ -56,6 +57,15 @@ in
         ft("lua"):fmt("lsp")
           :append("stylua")
           :lint("selene")
+
+        ft("nix"):fmt({
+            cmd = "nixpkgs-fmt",
+            stdin = true
+          })
+          :lint({
+            cmd = "statix",
+            args = { "check", "-o", "errfmt" },
+          })
 
         require("guard").setup({
           fmt_on_save = true,

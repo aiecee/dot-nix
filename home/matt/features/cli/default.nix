@@ -25,7 +25,6 @@
     unstable.ollama
 
     nix-du
-    nixpkgs-fmt
   ];
 
 }
