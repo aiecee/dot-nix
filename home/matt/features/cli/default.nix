@@ -10,6 +10,7 @@
     ./lf.nix
     ./pfetch.nix
     ./starship
+    ./ssh.nix
     ./zellij.nix
     ./zsh.nix
   ];

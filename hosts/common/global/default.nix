@@ -7,7 +7,6 @@
     ./environment.nix
     ./locale.nix
     ./nix.nix
-    ./ssh.nix
     ./usb.nix
     ./zsh.nix
     ../../../shared/tokyo-night-terminal-storm.nix
