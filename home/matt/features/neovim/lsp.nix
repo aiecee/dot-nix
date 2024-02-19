@@ -2,12 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # node + typescript
-    nodejs
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages."@tailwindcss/language-server"
     # python
     python3
     python311Packages.python-lsp-server
