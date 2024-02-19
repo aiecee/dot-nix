@@ -19,5 +19,6 @@
     via
     vlc
     dconf
+    rpi-imager
   ];
 }
