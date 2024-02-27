@@ -34,6 +34,9 @@
         inherit system;
         config.allowUnfree = true;
       });
+      devShellForSystems = f: lib.genAttrs systems (system: f {
+        pkgs = import nixpkgs { inherit system; };
+      });
     in
     {
       packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; });
@@ -61,5 +64,15 @@
           ];
         };
       };
+
+      devShells = devShellForSystems ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            nil
+            nixpkgs-fmt
+            statix
+          ];
+        };
+      });
     };
 }

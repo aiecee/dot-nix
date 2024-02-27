@@ -6,8 +6,6 @@
     python3
     python311Packages.python-lsp-server
     python311Packages.yapf
-    # nix
-    nil
     # c/c++
     ccls
     # llvmPackages_9.clang-unwrapped
@@ -41,6 +39,8 @@
         add_lsp(lspconfig.tailwindcss, {})
         add_lsp(lspconfig.pylsp, {})
         add_lsp(lspconfig.ccls, {})
+        add_lsp(lspconfig.gopls, {})
+        add_lsp(lspconfig.golangci_lint_ls, {})
         
         local sumneko_runtime_paths = vim.split(package.path, ";", {})
         table.insert(sumneko_runtime_paths, "lua/?.lua")
