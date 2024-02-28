@@ -4,6 +4,7 @@
   imports = [
     ./hyprland
     ./mako.nix
+    ./swaylock.nix
     ./waybar.nix
   ];
 
