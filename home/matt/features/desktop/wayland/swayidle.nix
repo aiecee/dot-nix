@@ -4,7 +4,7 @@ let
   pgrep = "${pkgs.procps}/bin/pgrep";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   # 4 minute lock time
-  lockTime = 10;
+  lockTime = 4 * 60;
   isLocked = "${pgrep} -x ${swaylock}";
   # makes two timeouts: one for when the screen is not locked (lockTime+timeout) and one for when it is.
   afterLockTimeout = { timeout, command, resumeCommand ? null }: [
@@ -13,9 +13,9 @@ let
   ];
 in
 {
-  service.swayidle = {
+  services.swayidle = {
     enable = true;
-    systemTarget = "graphical-session.target";
+    systemdTarget = "graphical-session.target";
     timeouts = [
       # lock screen
       {
