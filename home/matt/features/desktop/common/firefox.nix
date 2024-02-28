@@ -1,7 +1,23 @@
-{ ... }:
+{ config, ... }:
 
 {
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    profiles.matt = {
+      bookmarks = { };
+      extensions = with config.nur.repos.rycee.firefox-addons; [
+        bitwarden
+        firefox-color
+        privacy-badger
+        simple-tab-groups
+        sponsorblock
+        ublock-origin
+      ];
+      settings = {
+        "browser.startup.page" = 3;
+      };
+    };
+  };
 
   xdg.mimeApps = {
     enable = true;

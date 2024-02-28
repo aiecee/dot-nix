@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.nur.hmModules.nur
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {

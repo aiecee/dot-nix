@@ -15,6 +15,8 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
