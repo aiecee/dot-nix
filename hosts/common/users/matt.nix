@@ -14,4 +14,6 @@
   };
 
   home-manager.users.matt = import ../../../home/matt/${config.networking.hostName}.nix;
+
+  security.pam.services = { swaylock = { }; };
 }
