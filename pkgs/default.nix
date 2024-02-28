@@ -8,5 +8,6 @@
   dmenu-power = pkgs.callPackage ./dmenu-power.nix { };
   dmenu-kill-process = pkgs.callPackage ./dmenu-kill-process.nix { };
   dmenu-bitwarden = pkgs.callPackage ./dmenu-bitwarden.nix { };
+  nix-stray-roots = pkgs.callPackage ./nix-stray-roots.nix { };
 
 }

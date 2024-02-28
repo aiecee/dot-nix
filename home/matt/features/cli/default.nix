@@ -26,6 +26,7 @@
     unstable.ollama
 
     nix-du
+    nix-stray-roots
   ];
 
 }
