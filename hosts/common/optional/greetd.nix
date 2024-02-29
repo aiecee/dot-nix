@@ -3,7 +3,8 @@
 let
   homeConfigs = config.home-manager.users;
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;
-  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}" GTK_USE_PORTAL=0'';
+  flatpakPaths = if config.services.flatpak.enable then ":/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share" else "";
+  vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}${flatpakPaths}" GTK_USE_PORTAL=0'';
 
   gtkTheme = config.rice.gtk;
   iconTheme = config.rice.icons;

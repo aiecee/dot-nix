@@ -11,6 +11,7 @@
 
     ../common/optional/auto-upgrade.nix
     #../common/optional/dwm
+    ../common/optional/flatpak.nix
     ../common/optional/gaming.nix
     ../common/optional/greetd.nix
     ../common/optional/opengl.nix

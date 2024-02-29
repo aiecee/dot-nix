@@ -28,6 +28,7 @@ let
 
   terminal = "${pkgs.kitty}/bin/kitty";
   browser = "${pkgs.firefox}/bin/firefox";
+  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   bemenu-pipewire = "$HOME/${config.xdg.configFile."hyprland/scripts/pipewire.sh".target}";
   bemenu-power = "$HOME/${config.xdg.configFile."hyprland/scripts/power.sh".target}";
   bemenu-run = "$HOME/${config.xdg.configFile."hyprland/scripts/run.sh".target}";
@@ -125,6 +126,7 @@ in
         [
           "SUPER,Return,exec,${terminal}"
           "SUPER,b,exec,${browser}"
+          "SUPERSHIFT,l,exec,${swaylock}"
           "SUPER,a,exec,${bemenu-pipewire}"
           "SUPER,p,exec,${bemenu-power}"
           "SUPER,s,exec,${bemenu-screenshot}"
