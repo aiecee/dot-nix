@@ -15,6 +15,7 @@
     ../common/optional/greetd.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
+    ../common/optional/xdg-portal.nix
     ../common/optional/xwayland.nix
   ];
 

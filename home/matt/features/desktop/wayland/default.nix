@@ -11,8 +11,6 @@
 
   xdg.mimeApps.enable = true;
 
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
   home.packages = with pkgs; [
     wl-clipboard
     slurp
