@@ -15,5 +15,11 @@ in
         name = cfg.name;
       };
     };
+    services.xsettingsd = {
+      enable = true;
+      settings = {
+        "Net/IconThemeName" = "${cfg.name}";
+      };
+    };
   };
 }
