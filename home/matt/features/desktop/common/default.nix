@@ -20,5 +20,7 @@
     vlc
     dconf
     rpi-imager
+    slack
+    zoom-us
   ];
 }
