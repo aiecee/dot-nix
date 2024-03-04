@@ -6,9 +6,6 @@
     python3
     python311Packages.python-lsp-server
     python311Packages.yapf
-    # c/c++
-    ccls
-    # llvmPackages_9.clang-unwrapped
     # lua
     unstable.lua-language-server
   ];
@@ -38,7 +35,6 @@
         add_lsp(lspconfig.jsonls, {})
         add_lsp(lspconfig.tailwindcss, {})
         add_lsp(lspconfig.pylsp, {})
-        add_lsp(lspconfig.ccls, {})
         add_lsp(lspconfig.gopls, {})
         add_lsp(lspconfig.golangci_lint_ls, {})
         

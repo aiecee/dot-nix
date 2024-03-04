@@ -2,5 +2,5 @@
 
 writeShellScriptBin "nix-stray-roots" ''
   nix-store --gc --print-roots \
-    | ${gnugrep}/bin/egrep -v '^(/proc|/nix/var|/run/\w+-system|\{memory|\{temp|.*/.cache)'
+    | ${gnugrep}/bin/egrep -v "^(/nix/var|/run/\w+-system|\{memory|\{censored|/proc/maps/)"
 ''

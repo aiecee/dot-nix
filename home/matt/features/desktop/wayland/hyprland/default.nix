@@ -115,6 +115,8 @@ in
         "tile, class:^(steam_app_)([0-9]*)$"
         "workspace 1, class:^(firefox)$"
         "workspace 3, class:^(discord)$"
+        "workspace 3, class:^(Slack)$"
+        "workspace 3, class:^(zoom)$"
         "workspace 4, class:^(steam)$"
       ];
       bind =
@@ -141,5 +143,4 @@ in
         ];
     };
   };
-
 }

@@ -27,6 +27,7 @@
 
     nix-du
     nix-stray-roots
+    nix-tree
   ];
 
 }

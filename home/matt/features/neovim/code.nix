@@ -75,10 +75,14 @@ in
           :fmt("gofumpt")
           :lint("golangci_lint")
 
+        ft('typescript,javascript,typescriptreact')
+          :fmt('prettier')
+
         require("guard").setup({
           fmt_on_save = true,
           lsp_as_default_formatter = true,
         })
+
       '';
     }
   ];
