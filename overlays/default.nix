@@ -6,6 +6,21 @@ let
   });
 in
 {
+  # For every flake input, aliases 'pkgs.inputs.${flake}' to
+  # 'inputs.${flake}.packages.${pkgs.system}' or
+  # 'inputs.${flake}.legacyPackages.${pkgs.system}'
+  flake-inputs = final: _: {
+    inputs = builtins.mapAttrs
+      (_: flake:
+        let
+          legacyPackages = ((flake.legacyPackages or { }).${final.system} or { });
+          packages = ((flake.packages or { }).${final.system} or { });
+        in
+        if legacyPackages != { } then legacyPackages else packages
+      )
+      inputs;
+  };
+
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs { pkgs = final; };
 
@@ -16,14 +31,19 @@ in
     dwm = addPatches prev.dwm [ ./dwm-nixos.diff ];
     slstatus = addPatches prev.slstatus [ ./slstatus-nixos.diff ];
     # Fix slack screen sharing following: https://github.com/flathub/com.slack.Slack/issues/101#issuecomment-1807073763
-    #slack = prev.slack.overrideAttrs (previousAttrs: {
-    #  installPhase =
-    #    previousAttrs.installPhase
-    #    + ''
-    #      sed -i'.backup' -e 's/,"WebRTCPipeWireCapturer"/,"LebRTCPipeWireCapturer"/' $out/lib/slack/resources/app.asar
-#
-#        '';
-#    });
+    slack = prev.slack.overrideAttrs (previousAttrs: {
+      installPhase =
+        previousAttrs.installPhase
+        + ''
+          rm $out/bin/slack
+
+          makeWrapper $out/lib/slack/slack $out/bin/slack \
+            --prefix XDG_DATA_DIRS : $GSETTINGS_SCHEMAS_PATH \
+            --prefix PATH : ${final.lib.makeBinPath [final.xdg-utils]} \
+            --add-flags "--ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer"
+
+        '';
+    });
     # dmenu = addPatches prev.dmenu [ ./dmenu-password-5.0.diff ];
   };
 

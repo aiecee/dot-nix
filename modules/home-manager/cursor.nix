@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let
   cfg = config.rice.cursor;
-in 
+in
 {
   imports = [
     ../shared/cursor.nix

@@ -28,44 +28,30 @@
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
+      utils = import ./utils { inherit inputs; };
       systems = [
         "aarch64-linux"
         "x86_64-linux"
       ];
-      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      });
       devShellForSystems = f: lib.genAttrs systems (system: f {
         pkgs = import nixpkgs { inherit system; };
       });
+
     in
     {
-      packages = forAllSystems (pkgs: import ./pkgs { inherit pkgs; });
-      formatter = forAllSystems (pkgs: pkgs.nixpkgs-fmt);
+      packages = utils.shared.forAllSystems (pkgs: import ./pkgs { inherit pkgs; });
+      formatter = utils.shared.forAllSystems (pkgs: pkgs.nixpkgs-fmt);
 
       overlays = import ./overlays { inherit inputs outputs; };
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        christopher = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/christopher
-          ];
-        };
+        christopher = utils.nixos.mkSystem ./hosts/christopher;
       };
 
       homeConfigurations = {
-        "matt@christopher" = lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home/matt/christopher.nix
-          ];
-        };
+        "matt@christopher" = utils.home-manager.mkHome "x86_64-linux" ./home/matt/christopher.nix;
       };
 
       devShells = devShellForSystems ({ pkgs }: {
