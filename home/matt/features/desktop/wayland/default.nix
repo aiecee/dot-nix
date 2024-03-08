@@ -16,6 +16,8 @@
     slurp
     grim
     nwg-look
+
+    wlr-randr
   ];
 
   home.sessionVariables = {

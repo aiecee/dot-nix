@@ -2,7 +2,7 @@
 # These should be stuff you would like to share with others, not your personal configurations.
 {
 
-  monitors = import ./monitors.nix;
+  monitors = import ../shared/monitors.nix;
   customFonts = import ./fonts.nix;
   wallpaper = import ./wallpaper.nix;
   customCursor = import ./cursor.nix;
