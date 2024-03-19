@@ -16,6 +16,7 @@
     slurp
     grim
     nwg-look
+    gtk3
 
     wlr-randr
   ];
