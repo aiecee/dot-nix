@@ -78,6 +78,12 @@ in
         ft('typescript,javascript,typescriptreact')
           :fmt('prettier')
 
+        ft('cpp,c')
+          :fmt('clang-format')
+
+        ft('rust')
+          :fmt('rustfmt')
+
         require("guard").setup({
           fmt_on_save = true,
           lsp_as_default_formatter = true,

@@ -6,6 +6,7 @@
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
     nvim-treesitter-refactor
     nvim-treesitter-context
+    nvim-treesitter-textobjects
     nvim-ts-autotag
     {
       plugin = nvim-treesitter.withAllGrammars;
@@ -30,6 +31,9 @@
             highlight_current_scope = {
               enable = false,
             },
+          },
+          textobjects = {
+            enable = true,
           },
         })
       '';

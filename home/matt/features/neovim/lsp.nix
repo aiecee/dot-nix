@@ -37,6 +37,8 @@
         add_lsp(lspconfig.pylsp, {})
         add_lsp(lspconfig.gopls, {})
         add_lsp(lspconfig.golangci_lint_ls, {})
+        add_lsp(lspconfig.clangd, {})
+        add_lsp(lspconfig.rust_analyzer, {})
         
         local sumneko_runtime_paths = vim.split(package.path, ";", {})
         table.insert(sumneko_runtime_paths, "lua/?.lua")

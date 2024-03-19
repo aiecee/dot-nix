@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }:
 
 let
+  inherit (config) monitors;
+
   homeConfigs = config.home-manager.users;
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;
   flatpakPaths = if config.services.flatpak.enable then ":/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share" else "";
@@ -10,6 +12,18 @@ let
   iconTheme = config.rice.icons;
   cursorTheme = config.rice.cursor;
   font = config.rice.fonts.serif;
+
+  #kanshi = lib.getExe pkgs.kanshi;
+  #mkKanshiOutput = name: monitor: ''
+  #  output ${name} enable mode ${toString monitor.width}x${toString monitor.height} position ${toString monitor.x},${toString monitor.y}
+  #'';
+  #mkKanshiProfile = mntrs: vrs: command: ''
+  #  profile {
+  #    ${lib.concatLines (lib.mapAttrsToList mkKanshiOutput mntrs)}
+  #    exec '${vrs} ${command}'
+  #  }
+  #'';
+  #cage-kiosk = mntrs: vrs: command: "${lib.getExe pkgs.cage} -s -m last -- ${kanshi} -c ${pkgs.writeText "kanshi-kiosk.config" (mkKanshiProfile mntrs vrs command)}";
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
@@ -48,5 +62,6 @@ in
   services.greetd = {
     enable = true;
     settings.default_session.command = sway-kiosk (lib.getExe config.programs.regreet.package);
+    #settings.default_session.command = cage-kiosk monitors vars (lib.getExe config.programs.regreet.package);
   };
 }
