@@ -6,7 +6,7 @@ in
 {
   services.mako = {
     enable = true;
-    iconPath = "${config.gtk.iconTheme.package}/share/icon/Papirus-Dark";
+    iconPath = "${config.gtk.iconTheme.package}/share/icons/Sweet-Rainbow";
     font = "${config.rice.fonts.monospace.family} 11";
     backgroundColor = "#${palette.base02}";
     borderColor = "#${palette.base0A}";

@@ -6,6 +6,7 @@
     ./boot.nix
     ./environment.nix
     ./locale.nix
+    ./networking.nix
     ./nix.nix
     ./usb.nix
     ./zsh.nix

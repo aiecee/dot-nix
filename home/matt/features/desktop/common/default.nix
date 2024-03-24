@@ -21,5 +21,6 @@
     rpi-imager
     slack
     zoom-us
+    obs-studio
   ];
 }
