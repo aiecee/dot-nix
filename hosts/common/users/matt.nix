@@ -4,7 +4,7 @@
   users.users.matt = {
     isNormalUser = true;
     description = "Matt";
-    password = config.sops.secrets.matts-password.path;
+    hashedPasswordFile = config.sops.secrets.matts-password.path;
     extraGroups = [
       "wheel"
       "networkmanager"

@@ -19,6 +19,8 @@
     ../common/optional/xwayland.nix
   ];
 
+  users.mutableUsers = false;
+
   monitors = {
     DP-1 = {
       primary = true;
