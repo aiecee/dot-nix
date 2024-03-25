@@ -16,6 +16,9 @@
   ];
 
   home.packages = with pkgs; [
+    age
+    sops
+
     eza
     ripgrep
     fd

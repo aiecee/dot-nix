@@ -8,6 +8,7 @@
     ./locale.nix
     ./networking.nix
     ./nix.nix
+    ./sops.nix
     ./usb.nix
     ./zsh.nix
     ../../../shared/tokyo-night-terminal-storm.nix

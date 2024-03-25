@@ -1,0 +1,10 @@
+keys:
+  - &users:
+    - &matt age1sk83qy4ez6w709f2u5640e0klavndmzarz03nwtcwg7nyc8lwpkqx2kzrz
+
+creation_rules:
+  - path_regex: hosts/common/secrets.ya?ml$
+    key_groups:
+      - age:
+        - *matt
+
