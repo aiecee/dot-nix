@@ -9,7 +9,7 @@
     ./features/desktop/wayland
     ./features/neovim
 
-    ../../shared/tokyo-night-terminal-storm.nix
+    ../../shared/katy.nix
   ];
 
   #colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;

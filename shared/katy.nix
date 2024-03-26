@@ -33,7 +33,7 @@ in
     icons = {
       enable = true;
       package = pkgs.sweet-folders;
-      name = "Sweet-Rainbow";
+      name = "Sweet-Mars";
     };
     gtk = {
       enable = true;
