@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 let
-  inherit (config) monitors;
+  #inherit (config) monitors;
 
   homeConfigs = config.home-manager.users;
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeConfigs;

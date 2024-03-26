@@ -13,8 +13,11 @@
   ];
 
   #colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;
+  #colorScheme = inputs.nix-colors.colorschemes.tokyo-night-terminal-storm;
+  #colorScheme = inputs.nix-colors.colorschemes.ayu-mirage;
+  colorScheme = inputs.nix-colors.colorschemes.katy;
+  #colorScheme = inputs.nix-colors.colorschemes.lime;
   #colorScheme = inputs.nix-colors.colorschemes.stella;
-  colorScheme = inputs.nix-colors.colorschemes.tokyo-night-terminal-storm;
 
   wallpaper =
     let

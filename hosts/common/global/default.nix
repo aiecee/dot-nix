@@ -11,7 +11,8 @@
     ./sops.nix
     ./usb.nix
     ./zsh.nix
-    ../../../shared/tokyo-night-terminal-storm.nix
+    #../../../shared/tokyo-night-terminal-storm.nix
+    ../../../shared/base16.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
 
