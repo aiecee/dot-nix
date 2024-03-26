@@ -25,7 +25,6 @@
     jq
     diskonaut
     neofetch
-    lazygit
     unstable.ollama
 
     nix-du
