@@ -11,7 +11,7 @@
     ./sops.nix
     ./usb.nix
     ./zsh.nix
-    ../../../shared/katy.nix
+    ../../../shared/rose-pine-moon.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
 
