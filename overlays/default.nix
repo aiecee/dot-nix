@@ -1,4 +1,3 @@
-# This file defines overlays
 { inputs, ... }:
 let
   addPatches = pkg: patches: pkg.overrideAttrs (oldAttrs: {
@@ -45,6 +44,15 @@ in
         '';
     });
     # dmenu = addPatches prev.dmenu [ ./dmenu-password-5.0.diff ];
+    hypr = prev.hypr.overrideAttrs
+      (previousAttrs: {
+        src = prev.fetchFromGitHub {
+          owner = "hyprwm";
+          repo = "Hypr";
+          rev = "1.1.4";
+          hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        };
+      });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

@@ -17,6 +17,7 @@
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
     ../common/optional/xwayland.nix
+    ../common/optional/windowManager/hypr.nix
   ];
 
   users.mutableUsers = false;
