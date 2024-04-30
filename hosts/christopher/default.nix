@@ -16,6 +16,7 @@
     ../common/optional/greetd.nix
     ../common/optional/opengl.nix
     ../common/optional/pipewire.nix
+    ../common/optional/qmk.nix
     ../common/optional/xwayland.nix
     ../common/optional/windowManager/hypr.nix
   ];
