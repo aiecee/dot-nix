@@ -4,6 +4,8 @@ let
   # inherit colours
   inherit (config.colorScheme) palette;
 
+  hyprland = pkgs.hyprland;
+  xdph = pkgs.inputs.hyprland.xdg-desktop-portal-hyprland.override { inherit hyprland; };
   workspaces = (map toString (lib.range 1 9));
   directions = rec {
     left = "l";
@@ -55,17 +57,25 @@ in
 
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ xdph ];
+    configPackages = [ hyprland ];
+    xdgOpenUsePortal = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    package = pkgs.hyprland;
+    package = hyprland;
     settings = {
       exec = [
         "${pkgs.swaybg}/bin/swaybg -i ${config.wallpaper} --mode fill"
       ];
       exec-once = [
-        #"${pkgs.udiskie}/bin/udiskie &"
+        "systemctl --user import-environment PATH"
+        "systemctl --user restart xdg-desktop-portal.service"
       ];
       general = {
         layout = "master";

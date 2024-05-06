@@ -8,7 +8,7 @@
 
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    package = pkgs.unstable.waybar;
     systemd.enable = true;
     settings = [
       {
