@@ -57,28 +57,27 @@
             args = { "check", "-o", "errfmt" },
           })
 
-        ft("python")
-          :fmt("ruff")
-          :lint("ruff")
+        -- ft("python")
+        --   :fmt("ruff")
+        --   :lint("ruff")
 
-        ft("go")
-          :fmt("gofumpt")
-          :lint("golangci_lint")
+        -- ft("go")
+        --   :fmt("gofumpt")
+        --   :lint("golangci_lint")
 
-        ft('typescript,javascript,typescriptreact')
-          :fmt('prettier')
+        -- ft('typescript,javascript,typescriptreact')
+        --   :fmt('prettier')
 
-        ft('cpp,c')
-          :fmt('clang-format')
+        -- ft('cpp,c')
+        --   :fmt('clang-format')
 
-        ft('rust')
-          :fmt('rustfmt')
+        -- ft('rust')
+        --   :fmt('rustfmt')
 
         require("guard").setup({
           fmt_on_save = true,
           lsp_as_default_formatter = true,
         })
-
       '';
     }
   ];

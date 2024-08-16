@@ -4,7 +4,9 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     shellAliases = {
       md = "mkdir -p";
       mkdir = "mkdir -p";

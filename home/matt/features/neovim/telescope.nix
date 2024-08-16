@@ -12,13 +12,13 @@
       config = ''
                 local telescope = require("telescope")
                 local telescope_themes = require("telescope.themes")
-                local trouble_telescope = require("trouble.providers.telescope")
+                local trouble_telescope = require("trouble.sources.telescope")
 
                 telescope.setup({
                 defaults = {
         				mappings = {
-        					i = { ["<c-t>"] = trouble_telescope.open_with_trouble },
-        					n = { ["<c-t>"] = trouble_telescope.open_with_trouble },
+        					i = { ["<c-t>"] = trouble_telescope.open },
+        					n = { ["<c-t>"] = trouble_telescope.open },
         				},
         			},
                   pickers = {

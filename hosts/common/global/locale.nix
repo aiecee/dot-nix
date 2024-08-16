@@ -19,8 +19,10 @@
   time.timeZone = "Europe/London";
 
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
   };
 
   services.geoclue2.enable = true;

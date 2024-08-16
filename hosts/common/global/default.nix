@@ -16,6 +16,7 @@
 
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.backupFileExtension = "hm-backup";
 
   environment.systemPackages = [
     inputs.home-manager.packages.${pkgs.system}.default

@@ -13,7 +13,6 @@
       XDG_STATE_HOME = "$HOME/.local/state";
     };
     systemPackages = with pkgs; [
-      neovim
       git
       curl
       wget

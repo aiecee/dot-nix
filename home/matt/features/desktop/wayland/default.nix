@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./eww
     ./hyprland
     ./mako.nix
     ./swayidle.nix
