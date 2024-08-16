@@ -1,4 +1,6 @@
+@import './colours.css';
+
 button {
-  background: blue;
+  background: var(--base01);
   font-size: 36px;
 }
