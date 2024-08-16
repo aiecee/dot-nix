@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 let
   inherit (config.colorScheme) palette;
@@ -18,5 +18,9 @@ in
     height = 150;
     defaultTimeout = 10000;
   };
+
+  home.packages = with pkgs; [
+    libnotify
+  ];
 
 }
