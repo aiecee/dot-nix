@@ -9,7 +9,7 @@
     ./features/desktop/wayland
     ./features/neovim
 
-    ../../shared/rose-pine-moon.nix
+    ../../shared/everforest.nix
   ];
 
   #colorScheme = inputs.nix-colors.colorschemes.rose-pine-moon;

@@ -1,6 +1,6 @@
 @import './colours.css';
 
 button {
-  background: var(--base01);
+  background: @base07;
   font-size: 36px;
 }
