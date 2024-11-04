@@ -1,8 +1,7 @@
 { inputs }:
 let
   inherit (inputs.self) outputs;
-  inherit (inputs.nixpkgs) lib;
-  shared-utils = (import./shared-utils.nix) {
+  shared-utils = (import ./shared-utils.nix) {
     inherit inputs;
   };
 in

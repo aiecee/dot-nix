@@ -11,9 +11,9 @@ let
   cursorTheme = config.rice.cursor;
   font = config.rice.fonts.serif;
 
-  sway-kiosk = command: "${lib.getExe pkgs.unstable.sway} --config ${pkgs.writeText "kiosk.config" ''
+  sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
-    exec '${vars} ${command} -l debug; ${pkgs.unstable.sway}/bin/swaymsg exit'
+    exec '${vars} ${command} -l debug; ${pkgs.sway}/bin/swaymsg exit'
   ''}";
 in
 {

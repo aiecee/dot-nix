@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     selene
     stylua
-    nixpkgs-fmt
     statix
+    alejandra
   ];
 
   programs.neovim.plugins = with pkgs.unstable.vimPlugins; [
@@ -49,7 +49,7 @@
           :lint("selene")
 
         ft("nix"):fmt({
-            cmd = "nixpkgs-fmt",
+            cmd = "alejandra",
             stdin = true
           })
           :lint({
@@ -74,10 +74,10 @@
         -- ft('rust')
         --   :fmt('rustfmt')
 
-        require("guard").setup({
+        vim.g.guard_config = {
           fmt_on_save = true,
           lsp_as_default_formatter = true,
-        })
+        };
       '';
     }
   ];

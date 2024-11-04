@@ -145,7 +145,7 @@ in
           "SUPER,Space,exec,${bemenu-run}"
           "SUPER,f,fullscreen,0"
           "SUPER,t,togglefloating,active"
-          "SUPERSHIFT,f,fakefullscreen"
+          "SUPERSHIFT,f,fullscreenstate,-1 2"
           "SUPER,q,killactive"
           "SUPERSHIFT,q,exit"
           ",XF86AudioRaiseVolume,exec,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"

@@ -1,7 +1,7 @@
 { lib, ... }:
 let
   inherit (lib) mkEnableOption mkOption types;
-in 
+in
 {
   options.rice.cursor = {
     enable = mkEnableOption "Enable custom cursors";

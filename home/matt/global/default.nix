@@ -1,16 +1,22 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
-
-{
-  imports = [
-    inputs.nix-colors.homeManagerModules.default
-    inputs.nur.hmModules.nur
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+{ inputs
+, lib
+, pkgs
+, config
+, outputs
+, ...
+}: {
+  imports =
+    [
+      inputs.nix-colors.homeManagerModules.default
+      inputs.nur.hmModules.nur
+    ]
+    ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -33,5 +39,4 @@
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "24.05";
   };
-
 }

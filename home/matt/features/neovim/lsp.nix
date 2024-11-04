@@ -28,7 +28,7 @@
         end
 
         add_lsp(lspconfig.nil_ls, {})
-        add_lsp(lspconfig.tsserver, {})
+        add_lsp(lspconfig.ts_ls, {})
         add_lsp(lspconfig.eslint, {})
         add_lsp(lspconfig.cssls, {})
         add_lsp(lspconfig.html, {})
@@ -37,7 +37,7 @@
         add_lsp(lspconfig.pylsp, {})
         add_lsp(lspconfig.gopls, {})
         add_lsp(lspconfig.golangci_lint_ls, {})
-        add_lsp(lspconfig.clangd, {})
+        add_lsp(lspconfig.ccls, {})
         add_lsp(lspconfig.rust_analyzer, {})
         
         local sumneko_runtime_paths = vim.split(package.path, ";", {})

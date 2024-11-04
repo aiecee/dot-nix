@@ -2,7 +2,8 @@
   description = "Your new nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -39,10 +40,11 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
-      devShellForSystems = f: lib.genAttrs systems (system: f {
-        pkgs = import nixpkgs { inherit system; };
-      });
-
+      devShellForSystems = f:
+        lib.genAttrs systems (system:
+          f {
+            pkgs = import nixpkgs { inherit system; };
+          });
     in
     {
       packages = utils.shared.forAllSystems (pkgs: import ./pkgs { inherit pkgs; });

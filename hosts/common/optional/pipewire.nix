@@ -1,7 +1,5 @@
-{ ... }:
-
-{
-  sound.enable = true;
+{ ... }: {
+  # sound.enable = true;
   security.polkit.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
